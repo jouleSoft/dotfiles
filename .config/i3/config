@@ -3,6 +3,8 @@
 # TITLE:  i3 config file                                                             #
 # AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          #
 # REF:    http://i3wm.org/docs/userguide.html                                        #
+#                                                                                    #
+# PATH:   ~/.config/i3/config                                                        #
 #                                                                                    # 
 # ================================================================================== #
 
@@ -10,7 +12,6 @@
 ### KEYBINDING INFO ###
 #######################
 
-#
 # Key legend
 # ------------------------
 # Return-key   = <Return>
@@ -575,6 +576,12 @@ gaps outer 0
 smart_borders on
 hide_edge_borders smart_no_gaps
 
+# |                Rounded corners                  | #
+# |-------------------------------------------------| #
+# | Configure rounded borders: i3-gaps-rounded-git  | #
+#
+# border_radius 10
+
 # |              Workspace assignments              | #
 # |-------------------------------------------------| #
 #
@@ -731,24 +738,3 @@ bar {
 #	bindsym $mod+i mode "default"
 #}
 
-# --WINDOW BEHAVIOUR--
-#
-# Configure rounded borders: i3-gaps-rounded-git
-# border_radius 10
-
-# --AUTOSTART--
-#
-# sbxkb: imported from Manjaro-i3
-# exec_always --no-startup-id sbxkb
-#
-# start_conky_maia: imported from Manjaro-i3
-# exec --no-startup-id start_conky_maia
-#
-# start_conky_green: imported from Manjaro-i3
-# exec --no-startup-id start_conky_green
-#
-# ff-theme-util: imported from Manjaro-i3
-# exec_always --no-startup-id ff-theme-util
-#
-# fix_xcursor: imported from Manjaro-i3
-# exec_always --no-startup-id fix_xcursor
