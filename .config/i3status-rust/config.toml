@@ -1,0 +1,135 @@
+# ================================================================================== #
+#                                                                                    #
+# TITLE:  i3status-rust config file                                                  #
+# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          #
+# UPDATE: 2021-06-03
+# REF:    https://github.com/greshake/i3status-rust                                  #
+#                                                                                    #
+# ================================================================================== #
+
+# THEME SELECTOR
+# --------------
+# Uncolored themes
+# --
+# plain (default)
+# native
+# semi-native
+# --
+# Colored themes
+# --
+# solarized-dark
+# solarized-light
+# slick
+# modern
+# bad-wolf
+# gruvbox-light
+# gruvbox-dark
+# space-villain
+# nord-dark(polar night)
+# --
+[theme]
+name = "modern"
+
+# THEME OVERRIDING
+# ----------------
+# Dracula theme: overrides the color scheme with Dracula colors
+# --
+[theme.overrides]
+alternating_tint_bg = "#383A59"
+alternating_tint_fg = "#F2F2F2"
+critical_bg = "#E0554A"
+critical_fg = "#F9D368"
+good_bg = "#D587EB"
+good_fg = "#282A36"
+idle_bg = "#282A36"
+idle_fg = "#BD93F9"
+info_bg = "#D863BB"
+info_fg = "#422953"
+warning_bg = "#D863BB"
+warning_fg = "#422953"
+# --
+
+[icons]
+name = "awesome5"
+[icons.overrides]
+music = "   "
+update = ""
+
+[[block]]
+block = "focused_window"
+max_width = 50
+show_marks = "visible"
+
+[[block]]
+block = "music"
+# Set Spotify player as scope
+player = "spotify"
+buttons = ["play", "next"]
+interface_name_exclude = [".*kdeconnect.*", "mpd"]
+# Keep hide when Spotify is closed
+hide_when_empty = true
+# on_collapsed_click = "/var/lib/flatpak/exports/bin/com.spotify.Client"
+on_click = "i3-msg workspace 4:"
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+format = " {layout}"
+interval = 15
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "disk_space"
+path = "/home"
+alias = "/home"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used;G}/{mem_total;G}"
+format_swap = "{swap_used;G}/{swap_total;G}"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{barchart}"
+
+[[block]]
+block = "networkmanager"
+on_click = "alacritty -e nmtui"
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
+interface_name_include = []
+ap_format = "[{strength}] {ssid}"
+device_format = "{icon} {ap}"
+
+[[block]]
+block = "time"
+interval = 1
+format = "%a %d/%m %R"
+
+[[block]]
+block = "pacman"
+interval = 300
+format = "{aur}"
+format_singular = "{aur}"
+format_up_to_date = ""
+critical_updates_regex = "(linux |linux-lts|linux-zen)"
+# aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
+aur_command = "checkupdates+aur"
+
+[[block]]
+block = "notify"

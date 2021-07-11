@@ -1,0 +1,16 @@
+# Avoid to print a new line at the beginning of the prompt
+add_newline = false
+
+# Disable package manager
+[package]
+disabled = false
+
+[username]
+style_user = "white_bold"
+style_root = "black bold"
+format = "user: [$user]($style) "
+show_always = false
+disabled = false
+
+[line_break]
+disabled = true
