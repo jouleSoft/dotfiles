@@ -28,25 +28,25 @@
 # nord-dark(polar night)
 # --
 [theme]
-name = "modern"
+name = "semi-native"
 
 # THEME OVERRIDING
 # ----------------
 # Dracula theme: overrides the color scheme with Dracula colors
 # --
-[theme.overrides]
-alternating_tint_bg = "#383A59"
-alternating_tint_fg = "#F2F2F2"
-critical_bg = "#E0554A"
-critical_fg = "#F9D368"
-good_bg = "#D587EB"
-good_fg = "#282A36"
-idle_bg = "#282A36"
-idle_fg = "#BD93F9"
-info_bg = "#D863BB"
-info_fg = "#422953"
-warning_bg = "#D863BB"
-warning_fg = "#422953"
+# [theme.overrides]
+# alternating_tint_bg = "#383A59"
+# alternating_tint_fg = "#F2F2F2"
+# critical_bg = "#E0554A"
+# critical_fg = "#F9D368"
+# good_bg = "#D587EB"
+# good_fg = "#282A36"
+# idle_bg = "#282A36"
+# idle_fg = "#BD93F9"
+# info_bg = "#D863BB"
+# info_fg = "#422953"
+# warning_bg = "#D863BB"
+# warning_fg = "#422953"
 # --
 
 [icons]

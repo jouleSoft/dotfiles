@@ -35,8 +35,8 @@ set --export jsdotfiles "/home/jjimenez/github/dotfiles"
 alias bat='bat --theme Dracula'
 alias cp='cp -vi'                   # Verbose and interactiva if overwrite
 alias free='free -m'                # Show values in mebibytes
-alias la='ls -lha'                  # List layout,  human readable and hidden files
-alias ll='ls -lh'                   # List layout and human readable
+alias la='ls -lh'                   # List layout,  human readable and hidden files
+alias ll='ls -lha'                  # List layout and human readable
 alias ls='exa'                      # Use 'exa' instead 'ls'
 alias mv='mv -vi'                   # Verbose and interactiva if overwrite
 alias rm='rm -v'                    # Verbose
@@ -45,10 +45,6 @@ alias rm='rm -v'                    # Verbose
 alias rbox='/usr/bin/firefox http://recalbox'
 alias rbox-kodi='/usr/bin/firefox http://recalbox:8081'
 alias rbox-ssh='/usr/bin/ssh root@recalbox'
-
-# js.download.links.sh alias for automation
-alias phdnl='js.download.links.sh /home/jjimenez/Documentos/lnk.txt /home/jjimenez/Vídeos/p'
-alias phlnk='vim /home/jjimenez/Documentos/lnk.txt'
 
 ################
 ### AUTOEXEC ###
