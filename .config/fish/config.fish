@@ -32,14 +32,15 @@ set --export jsdotfiles "/home/jjimenez/github/dotfiles"
 ###############
 
 # Commands
-alias bat='bat --theme Dracula'
-alias cp='cp -vi'                   # Verbose and interactiva if overwrite
-alias free='free -m'                # Show values in mebibytes
-alias la='ls -lh'                   # List layout,  human readable and hidden files
-alias ll='ls -lha'                  # List layout and human readable
-alias ls='exa'                      # Use 'exa' instead 'ls'
-alias mv='mv -vi'                   # Verbose and interactiva if overwrite
-alias rm='rm -v'                    # Verbose
+alias bat='bat --theme Dracula'              # Set Dracula color theme for bat
+alias cp='cp -vi'                            # Verbose and interactiva if overwrite
+alias free='free -m'                         # Show values in mebibytes
+alias history-uniq='history|sort|uniq|bat'   # Show history but uniq view and sorted
+alias la='ls -lh'                            # List layout,  human readable and hidden files
+alias ll='ls -lha'                           # List layout and human readable
+alias ls='exa'                               # Use 'exa' instead 'ls'
+alias mv='mv -vi'                            # Verbose and interactiva if overwrite
+alias rm='rm -v'                             # Verbose
 
 # Recalbox http/ssh aliases
 alias rbox='/usr/bin/firefox http://recalbox'

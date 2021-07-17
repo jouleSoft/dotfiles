@@ -58,6 +58,7 @@ declare -a options=(
 "i3-pctl-playPause      | $HOME/.config/i3/pctl-playPause.sh"
 "i3-umenu-term-apps     | $HOME/.config/i3/umenu-term-apps.sh"
 "i3status-rust          | $HOME/.config/i3status-rust/config.toml"
+"i3status               | $HOME/.config/i3status/config"
 "kitty                  | $HOME/.config/kitty/kitty.conf"
 "picom                  | $HOME/.config/picom.conf"
 "polybar                | $HOME/.config/polybar/config"
