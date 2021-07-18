@@ -625,7 +625,7 @@ exec_always --no-startup-id setxkbmap es
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #
 # pulse audio applet: tray icon
-exec --no-startup-id pa-applet
+exec --no-startup-id pa-applet --disable-notifications
 #
 # network manager applet: tray icon
 # --
