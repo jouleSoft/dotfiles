@@ -79,7 +79,11 @@ call plug#begin('~/.vim/plugged')
 " --Plugins
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'dense-analysis/ale'
+Plug 'pangloss/vim-javascript'
+" Plug 'vim-airline/vim-airline'
 " --Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular', {'for': 'markdown'}
@@ -92,6 +96,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic', { 'as': 'syntastic' }
 Plug 'preservim/nerdtree', { 'as': 'nerdtree' }
+Plug 'airblade/vim-gitgutter'
 " --Themes--
 Plug 'dracula/vim', { 'as': 'dracula' }
 " -------------------------------

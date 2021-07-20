@@ -46,6 +46,8 @@ disk "/home" {
 
 load {
         format = " %1min"
+        min_width = 60
+        align = "center"
 }
 
 memory {

@@ -23,7 +23,7 @@ set -a --export PATH "$HOME/github/js-sh"
 set -a --export PATH "$HOME/.emacs.d/bin"
 
 # js-sh
-set --export jsSh "/home/jjimenez/github/js-sh"
+set --export jssh "/home/jjimenez/github/js-sh"
 # dotfiles
 set --export jsdotfiles "/home/jjimenez/github/dotfiles"
 

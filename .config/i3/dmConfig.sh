@@ -32,7 +32,7 @@ description="Choose from a list of configuration files to edit"
 #Global operational variables
 # Defining the text editor to use.
 DMEDITOR="alacritty -e vim"
-# DMEDITOR="nvim"
+# DMEDITOR="alacritty -e nvim"
 # DMEDITOR="emacsclient -c -a emacs"
 # DMEDITOR="emacsclient -a emacs"
 
@@ -60,6 +60,7 @@ declare -a options=(
 "i3status-rust          | $HOME/.config/i3status-rust/config.toml"
 "i3status               | $HOME/.config/i3status/config"
 "kitty                  | $HOME/.config/kitty/kitty.conf"
+"neovim                 | $HOME/.config/nvim/init.vim"
 "picom                  | $HOME/.config/picom.conf"
 "polybar                | $HOME/.config/polybar/config"
 "qtile                  | $HOME/.config/qtile/config.py"

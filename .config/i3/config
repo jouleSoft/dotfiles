@@ -661,6 +661,9 @@ exec --no-startup-id megasync
 # remmina: autostart as tray icon
 exec --no-startup-id remmina -i
 #
+# hp-systray: autostart as tray icon
+exec --no-startup-id hp-systray
+#
 # joplin: autostart (configured as tray icon startup)
 exec --no-startup-id net.cozic.joplin_desktop
 #
