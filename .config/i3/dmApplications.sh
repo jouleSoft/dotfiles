@@ -33,6 +33,7 @@ description="Launch an application from a list"
 declare -a options=(
 "alacritty      | /usr/bin/alacritty"
 "bitwarden      | /var/lib/flatpak/exports/bin/com.bitwarden.desktop"
+"brasero        | /usr/bin/brasero"
 "chrome         | /usr/bin/google-chrome-stable"
 "draw.io        | /usr/bin/draw.io"
 "emacs          | /usr/bin/emacs"

@@ -39,8 +39,8 @@ set $terminal2 "xfce4-terminal -e bash"
 set $fmanager1 "alacritty -e ranger"
 set $fmanager2 thunar
 # set web browser
-set $wbrowser1 "surf https://duckduckgo.com"
-set $wbrowser2 firefox
+set $wbrowser1 firefox
+set $wbrowser2 google-chrome-stable
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -92,11 +92,11 @@ bindsym $mod+Return exec --no-startup-id $terminal1
 bindsym $mod+Shift+Return exec --no-startup-id $terminal2
 #
 # start a web browser
-bindsym $mod+$alt+Return exec --no-startup-id $wbrowser1
+bindsym $mod+$alt+Shift+Return exec --no-startup-id $wbrowser2
 #
 # firefox chord launcher
 set $mode_firefox |[Firefox]|> [n]ormal [p]rivate
-bindsym $mod+$alt+Shift+Return mode "$mode_firefox"
+bindsym $mod+$alt+Return mode "$mode_firefox"
 
 mode "$mode_firefox" {
 	bindsym n exec --no-startup-id firefox; mode "default"
@@ -104,7 +104,7 @@ mode "$mode_firefox" {
 
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
-    bindsym $mod+$alt+Shift+Return "default"
+        bindsym $mod+$alt+Return "default"
 }
 #
 # start a file manager
@@ -588,8 +588,8 @@ hide_edge_borders smart_no_gaps
 # Window rules, you can find the window class using xprop
 # for_window [class="^.*"] border pixel 2
 assign [class=kitty] $ws1
-assign [class=firefox|Google-chrome] $ws2
-assign [class=Thunar|feh] $ws3
+# assign [class=firefox|Google-chrome] $ws2
+# assign [class=Thunar|feh] $ws3
 assign [class=vlc|spotify] $ws4
 # assign [class=Emacs] $ws5
 assign [class=Joplin] $ws6

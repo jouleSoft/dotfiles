@@ -77,14 +77,11 @@ endif
 call plug#begin('~/.vim/plugged')
 " -------------------------------
 " --Plugins
-Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'itchyny/lightline.vim'
 Plug 'valloric/youcompleteme'
 Plug 'dense-analysis/ale'
-Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
-" Plug 'vim-airline/vim-airline'
 " --Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 " Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
@@ -95,15 +92,17 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic', { 'as': 'syntastic' }
 Plug 'preservim/nerdtree', { 'as': 'nerdtree' }
 Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
 " --Themes--
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 call plug#end()
 
 " --Dracula color scheme--
-colorscheme dracula
+" colorscheme dracula
 
 " --NERDTree commands--
 let NERDTreeQuitOnOpen=1
@@ -123,3 +122,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+" --ale configuration
+let g:ale_completion_autoimport = 1
