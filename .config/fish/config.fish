@@ -1,10 +1,11 @@
-# ================================================================================== #
-#                                                                                    #
+#
 # TITLE:  Fish config file
-# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          #
-# UPDATE: 2021-03-19                                                                 #
-#                                                                                    # 
-# ================================================================================== #
+# AUTHOR: Julio Jiménez Delgado (jouleSoft) 
+# UPDATE: 2021-03-19                       
+#                                         
+# ** UTF-8 **
+#                                         
+# ==========================================
 
 
 #################
@@ -43,6 +44,8 @@ alias ll='ls -lha'                           # List layout and human readable
 alias ls='exa'                               # Use 'exa' instead 'ls'
 alias mv='mv -vi'                            # Verbose and interactiva if overwrite
 alias rm='rm -v'                             # Verbose
+alias jekyll=/home/jjimenez/.local/share/gem/ruby/3.0.0/bin/jekyll
+alias bundle=/home/jjimenez/.local/share/gem/ruby/3.0.0/bin/bundle
 
 # Recalbox http/ssh aliases
 alias rbox='/usr/bin/firefox http://recalbox'

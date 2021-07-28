@@ -82,6 +82,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme'
 Plug 'dense-analysis/ale'
 Plug 'ervandew/supertab'
+Plug 'mattn/emmet-vim'
 " --Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 " Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
@@ -125,3 +126,7 @@ let g:syntastic_check_on_wq = 0
 
 " --ale configuration
 let g:ale_completion_autoimport = 1
+
+" --emmet configuration
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
