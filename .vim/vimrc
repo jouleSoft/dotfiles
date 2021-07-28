@@ -80,23 +80,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'valloric/youcompleteme'
 Plug 'dense-analysis/ale'
-Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim'
+Plug 'ervandew/supertab'
 " Plug 'vim-airline/vim-airline'
 " --Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'godlygeek/tabular', {'for': 'markdown'}
-Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
-Plug 'JamshedVesuna/vim-markdown-preview', {'for': 'markdown'}
+" Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 " --PowerShell
 Plug 'pprovost/vim-ps1', {'for': 'ps1'}
 " --Tools--
-Plug 'vimwiki/vimwiki'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic', { 'as': 'syntastic' }
 Plug 'preservim/nerdtree', { 'as': 'nerdtree' }
 Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'raimondi/delimitmate'
 " --Themes--
 Plug 'dracula/vim', { 'as': 'dracula' }
 " -------------------------------

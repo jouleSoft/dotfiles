@@ -700,8 +700,8 @@ bar {
     # |* i3status-rust in use                         |
     # |-                                              |
     #
-    #	status_command i3status-rs     #i3status-rust
-	status_command i3status        #i3status
+    	status_command i3status-rs     #i3status-rust
+    #	status_command i3status        #i3status
     # i3-bar color configuration
 	colors {
 		background #282A36

@@ -22,6 +22,8 @@ set fish_greeting ""
 set -a --export PATH "$HOME/github/js-sh"
 set -a --export PATH "$HOME/.emacs.d/bin"
 
+# github
+set --export github "/home/jjimenez/github"
 # js-sh
 set --export jssh "/home/jjimenez/github/js-sh"
 # dotfiles

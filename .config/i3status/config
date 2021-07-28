@@ -8,6 +8,8 @@
 
 general {
         colors = true
+        color_good = "#00FF00"
+        color_bad = "#FF5555"
         interval = 1
         output_format = "i3bar"
 }
@@ -38,10 +40,13 @@ battery all {
 
 disk "/" {
         format = " %avail"
+        align = "left"
+        separator = false
 }
 
 disk "/home" {
         format = " %avail"
+        align = "right"
 }
 
 load {
