@@ -36,8 +36,8 @@ set $alt Mod1
 set $terminal1 alacritty
 set $terminal2 "xfce4-terminal -e bash"
 # set file manager
-set $fmanager1 "alacritty -e ranger"
-set $fmanager2 thunar
+set $fmanager1 thunar
+set $fmanager2 "alacritty -e ranger"
 # set web browser
 set $wbrowser1 firefox
 set $wbrowser2 google-chrome-stable

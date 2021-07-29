@@ -41,6 +41,12 @@ nmap <leader>wh :wincmd h<CR>
 nmap <leader>wl :wincmd l<CR>
 nmap <leader>wj :wincmd j<CR>
 nmap <leader>wk :wincmd k<CR>
+
+map <C-l> :vertical resize +5<CR>
+map <C-h> :vertical resize -5<CR>
+map <C-j> :resize +5<CR>
+map <C-k> :resize -5<CR>
+
 " Close window
 nmap <leader>wc :close<CR>
 " Save
