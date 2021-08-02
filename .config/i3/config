@@ -62,14 +62,14 @@ set $wbrowser2 google-chrome-stable
 # ---------------
 # Terminal and code
 set $ws1 1:
+# Operations 1
+set $ws2 2:
 # Web browser
-set $ws2 2:
-# File system
-set $ws3 3:
+set $ws3 3:
 # Multimedia
 set $ws4 4:
-# Operations 1
-set $ws5 5:
+# File system
+set $ws5 5:
 # Operations 2
 set $ws6 6:
 # Virtualization
@@ -700,8 +700,8 @@ bar {
     # |* i3status-rust in use                         |
     # |-                                              |
     #
-    	status_command i3status-rs     #i3status-rust
-    #	status_command i3status        #i3status
+        status_command i3status-rs     #i3status-rust
+    #   status_command i3status        #i3status
     # i3-bar color configuration
 	colors {
 		background #282A36

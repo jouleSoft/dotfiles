@@ -42,6 +42,7 @@ declare -a options=(
 "kitty          | /usr/bin/kitty"
 "jupyter-lab    | /usr/bin/jupyter-lab"
 "libreOffice    | /usr/bin/libreoffice"
+"putty          | /usr/bin/putty"
 "remmina        | /usr/bin/remmina"
 "spotify        | /var/lib/flatpak/exports/bin/com.spotify.Client"
 "surf           | /usr/bin/surf"

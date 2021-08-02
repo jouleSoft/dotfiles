@@ -56,6 +56,7 @@ declare -a options=(
 "vim-config       | https://vimconfig.com/"
 "vim-awesome      | https://vimawesome.com/"
 "wordreference    | https://www.wordreference.com/"
+"zabbix-es        | https://www.zabbix-es.com.es/index.php/Zabbix_de_0_a_100_-_Documentaci%C3%B3n"
 "quit"
 )
 
