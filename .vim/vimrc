@@ -104,6 +104,7 @@ Plug 'raimondi/delimitmate'
 " --Themes--
 " Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline-themes'
+"!! [AUR] nerd-fonts-hack
 Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 call plug#end()

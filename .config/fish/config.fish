@@ -22,7 +22,7 @@ set fish_greeting ""
 # PATH appends
 set -a --export PATH "$HOME/github/js-sh"
 set -a --export PATH "$HOME/.emacs.d/bin"
-# set -a --export PATH "$HOME/.local/share/gem/ruby/3.0.0/bin"
+set -a --export PATH "$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 # github
 set --export github "$HOME/github"
