@@ -272,6 +272,12 @@ bindsym $mod+Shift+k move up
 # move focused window right
 bindsym $mod+Shift+l move right
 #
+# move to the next workspace
+bindsym $mod+Ctrl+l workspace next
+#
+# move to the previous workspace
+bindsym $mod+Ctrl+h workspace prev
+#
 # Shrink focused window width
 bindsym $mod+$alt+Ctrl+h resize shrink width 3 px or 3 ppt
 bindsym $mod+$alt+Ctrl+Shift+h resize shrink width 1 px or 1 ppt
@@ -588,15 +594,14 @@ hide_edge_borders smart_no_gaps
 # Window rules, you can find the window class using xprop
 # for_window [class="^.*"] border pixel 2
 assign [class=kitty] $ws1
-# assign [class=firefox|Google-chrome] $ws2
-# assign [class=Thunar|feh] $ws3
+assign [class=Emacs|Joplin] $ws2
+assign [class=firefox] $ws3
 assign [class=vlc|spotify] $ws4
-# assign [class=Emacs] $ws5
-# assign [class=Joplin] $ws6
+assign [class=feh] $ws5
 assign [class=Virt-manager|org.remmina.Remmina] $ws7
 assign [class=Lxappearance|Conky-manager|Nitrogen|Nm-connection-editor] $ws9
 for_window [class=Lxappearance|MEGAsync|Conky-manager] floating enable
-for_window [class=Virt-manager|Thunar|Lxappearance|Nitrogen|Emacs|Evince|vlc|feh|firefox|Surf|Nm-connection-editor] focus
+for_window [class=Virt-manager|Lxappearance|Nitrogen|Evince|vlc|feh|Nm-connection-editor] focus
 
 # |                  Window colors                  | #
 # |-------------------------------------------------| #
