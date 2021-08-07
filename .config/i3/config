@@ -594,7 +594,7 @@ hide_edge_borders smart_no_gaps
 # Window rules, you can find the window class using xprop
 # for_window [class="^.*"] border pixel 2
 assign [class=kitty] $ws1
-assign [class=Emacs|Joplin] $ws2
+assign [class=Emacs|Joplin|Google-chrome] $ws2
 assign [class=firefox] $ws3
 assign [class=vlc|spotify] $ws4
 assign [class=feh] $ws5
