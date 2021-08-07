@@ -1,12 +1,51 @@
-# ================================================================================== #
-#                                                                                    #
-# TITLE:  i3 config file                                                             #
-# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          #
-# REF:    http://i3wm.org/docs/userguide.html                                        #
-#                                                                                    #
-# PATH:   ~/.config/i3/config                                                        #
-#                                                                                    # 
-# ================================================================================== #
+# ================================================================================== 
+#                                                                                    
+# TITLE:  i3 config file                                                             
+# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          
+# REF:    http://i3wm.org/docs/userguide.html                                        
+#                                                                                    
+# PATH:   ~/.config/i3/config                                                        
+#
+# [DEPENDENCIES]
+#
+# - i3-gaps
+# - alacritty
+# - xfce4-terminal
+# - firefox
+# - google-chrome-stable
+# - ttf-font-awesome
+# - otf-font-awesome
+# - powerline
+# - ttf-ubuntu-font-family
+# - surf-git
+# - ranger
+# - thunar
+# - lightdm-gtk-greeter-settings
+# - lxappearance
+# - nitrogen
+# - nm-connection-editor
+# - pavucontrol
+# - dmenu
+# - conky
+# - picom
+# - dunst
+# - i3-exit
+# - i3-scrot
+# - playerctl
+# - polkit-gnome
+# - pa-applet
+# - xautolock
+# - blurlock
+# - clipit
+# - udiskie
+# - syncthing-gtk 
+# - megasync
+# - remmina
+# - hplip
+# - joplin-desktop
+# - i3status-rust
+#                                                                                     
+# ================================================================================== 
 
 #######################
 ### KEYBINDING INFO ###
