@@ -6,18 +6,24 @@
 #                                                                                    
 # PATH:   ~/.config/i3/config                                                        
 #
-# [DEPENDENCIES]
-#
-# - i3-gaps
-# - alacritty
-# - xfce4-terminal
-# - firefox
+# DEPENDENCIES:
+# [aur]
 # - google-chrome-stable
+# - i3exit
+# - i3-scrot
+# - megasync
+# - surf-git
+# - pa-applet-git
+# 
+# [community]
+# - alacritty
+# - i3-gaps
+# - i3status-rust
+# - firefox
 # - ttf-font-awesome
 # - otf-font-awesome
 # - powerline
 # - ttf-ubuntu-font-family
-# - surf-git
 # - ranger
 # - thunar
 # - lightdm-gtk-greeter-settings
@@ -26,24 +32,23 @@
 # - nm-connection-editor
 # - pavucontrol
 # - dmenu
+# - rofi
 # - conky
 # - picom
 # - dunst
-# - i3-exit
-# - i3-scrot
 # - playerctl
 # - polkit-gnome
-# - pa-applet
 # - xautolock
-# - blurlock
 # - clipit
 # - udiskie
 # - syncthing-gtk 
-# - megasync
+# - syncthing 
 # - remmina
 # - hplip
+# - xfce4-terminal
+#
+# [flatpak]
 # - joplin-desktop
-# - i3status-rust
 #                                                                                     
 # ================================================================================== 
 
