@@ -13,10 +13,13 @@
       org-journal-file-format "%Y%m%d.org")
 
 ;; Directorio de inicio al abrir emacs
-(setq default-directory "~/MEGA/org")
+(setq default-directory "~/")
 
 ;; Información relativa a org-capture
 ;; Definir variables:
 ;;   (defvar +org-capture-todo-file "personal.org")
 ;;   (defvar +org-capture-notes-file "personal.org")
 ;;   (defvar +org-capture-journal-file "personal.org")
+
+;; Indentation
+(setq-default tab-width 2)
