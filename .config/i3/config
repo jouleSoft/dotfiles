@@ -8,12 +8,14 @@
 #
 # DEPENDENCIES:
 # [aur]
+# - dropbox
 # - google-chrome-stable
 # - i3exit
 # - i3-scrot
 # - megasync
 # - surf-git
 # - pa-applet-git
+# - thunar-dropbox
 # 
 # [community]
 # - alacritty
@@ -275,17 +277,17 @@ bindsym $mod+q kill
 bindsym $mod+$alt+Ctrl+q mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+  bindsym e exec --no-startup-id i3exit logout, mode "default"
+  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym r exec --no-startup-id i3exit reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  # exit system mode: "Enter" or "Escape"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 # |                 [H|J|K|L]-Key                   | #
@@ -706,6 +708,9 @@ exec --no-startup-id syncthing-gtk
 #
 # mega sync: autostart as tray icon
 exec --no-startup-id megasync
+#
+# dropbox: autostart as tray icon
+exec --no-startup-id dropbox
 #
 # remmina: autostart as tray icon
 exec --no-startup-id remmina -i

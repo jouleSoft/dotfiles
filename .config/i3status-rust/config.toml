@@ -1,10 +1,14 @@
-# ================================================================================== #
-#                                                                                    #
-# TITLE:  i3status-rust config file                                                  #
-# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          #
-# REF:    https://github.com/greshake/i3status-rust                                  #
-#                                                                                    #
-# ================================================================================== #
+# ================================================================================== 
+#                                                                                    
+# TITLE:  i3status-rust config file                                                  
+# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          
+# REF:    https://github.com/greshake/i3status-rust                                  
+# 
+# DEPENDENCIES:
+# [community] 
+# - ttf-nerd-fonts-symbols
+#                                                                                    
+# ================================================================================== 
 
 # THEME SELECTOR
 # --------------
@@ -49,10 +53,11 @@ name = "semi-native"
 # --
 
 [icons]
-name = "awesome5"
+name = "material-nf"
 [icons.overrides]
-music = "   "
-update = ""
+#music = "   "
+#update = ""
+#volume-muted = ""
 
 [[block]]
 block = "focused_window"
@@ -73,7 +78,8 @@ on_click = "i3-msg workspace 4:"
 [[block]]
 block = "keyboard_layout"
 driver = "setxkbmap"
-format = " {layout}"
+#format = " {layout}"
+format = "{layout}"
 interval = 1
 
 [[block]]
@@ -129,7 +135,7 @@ block = "pacman"
 interval = 300
 format = "{aur}"
 format_singular = "{aur}"
-format_up_to_date = ""
+format_up_to_date = "{aur}"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 # aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
 aur_command = "checkupdates+aur"
@@ -137,9 +143,6 @@ aur_command = "checkupdates+aur"
 [[block]]
 block = "sound"
 format = "{volume}"
-
-[[block]]
-block = "notify"
 
 [[block]]
 block = "time"
