@@ -13,7 +13,7 @@
       org-journal-file-format "%Y%m%d.org")
 
 ;; Directorio de inicio al abrir emacs
-(setq default-directory "~/")
+(setq default-directory "~/MEGA/org")
 
 ;; Información relativa a org-capture
 ;; Definir variables:
