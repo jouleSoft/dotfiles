@@ -15,11 +15,14 @@
 ;; Directorio de inicio al abrir emacs
 (setq default-directory "~/MEGA/org")
 
+;; Default file for notes
+;; (setq org-default-notes-file (concat org-directory "/notes.org"))
+
 ;; Información relativa a org-capture
 ;; Definir variables:
-;;   (defvar +org-capture-todo-file "personal.org")
-;;   (defvar +org-capture-notes-file "personal.org")
-;;   (defvar +org-capture-journal-file "personal.org")
+;;    (defvar +org-capture-todo-file "personal.org")
+;;    (defvar +org-capture-notes-file "personal.org")
+;;    (defvar +org-capture-journal-file "personal.org")
 
 ;; Indentation
 (setq-default tab-width 2)
