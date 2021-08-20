@@ -137,3 +137,6 @@ let g:ale_completion_autoimport = 1
 " --emmet configuration
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" --Syntastic configuration--
+let g:airline_powerline_fonts = 1

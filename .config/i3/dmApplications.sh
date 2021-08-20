@@ -48,6 +48,7 @@ declare -a options=(
 "spotify         | /var/lib/flatpak/exports/bin/com.spotify.Client"
 "surf            | /usr/bin/surf"
 "telegram        | /usr/bin/telegram-desktop"
+"teams           | /usr/bin/teams"
 "thunar          | /usr/bin/thunar"
 "transmission    | /usr/bin/transmission-gtk"
 "virt-manager    | /usr/bin/virt-manager"
