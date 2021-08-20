@@ -1,0 +1,6 @@
+@import 'colors.css';
+
+/* Custom styles */
+VteTerminal, vte-terminal {
+        padding: 10px;
+}

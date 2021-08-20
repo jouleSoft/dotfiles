@@ -79,11 +79,11 @@
 set $mod Mod4
 set $alt Mod1
 # set terminal
-set $terminal1 alacritty
-set $terminal2 "xfce4-terminal -e bash"
+set $terminal1 xfce4-terminal
+set $terminal2 "alacritty -e bash"
 # set file manager
 set $fmanager1 thunar
-set $fmanager2 "alacritty -e ranger"
+set $fmanager2 "xfce4-terminal -e ranger"
 # set web browser
 set $wbrowser1 firefox
 set $wbrowser2 google-chrome-stable
