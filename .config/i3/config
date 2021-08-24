@@ -1,4 +1,3 @@
-# ================================================================================== 
 #                                                                                    
 # TITLE:  i3 config file                                                             
 # AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          
@@ -6,51 +5,54 @@
 #                                                                                    
 # PATH:   ~/.config/i3/config                                                        
 #
+# ================================================================================== 
+#
 # DEPENDENCIES:
 # [aur]
-# - dropbox
-# - google-chrome-stable
+# - dropbox (omited)
+# - google-chrome-stable (omited)
 # - i3exit
 # - i3-scrot
-# - megasync
-# - surf-git
-# - pa-applet-git
-# - thunar-dropbox
+# - megasync (not-arm)
+# - surf-git (omited)
+# - vimb
+# - pa-applet-git (no availiable for arm)
+# - thunar-dropbox (omited)
 # 
 # [community]
 # - alacritty
 # - i3-gaps
-# - i3status-rust
-# - firefox
-# - ttf-font-awesome
-# - otf-font-awesome
-# - powerline
-# - ttf-ubuntu-font-family
-# - ranger
-# - thunar
-# - lightdm-gtk-greeter-settings
-# - lxappearance
-# - nitrogen
-# - nm-connection-editor
-# - pavucontrol
-# - dmenu
-# - rofi
-# - conky
-# - picom
-# - dunst
-# - playerctl
-# - polkit-gnome
-# - xautolock
-# - clipit
-# - udiskie
-# - syncthing-gtk 
-# - syncthing 
-# - remmina
-# - hplip
-# - xfce4-terminal
+# - i3status-rust  
+# - firefox  
+# - ttf-font-awesome  
+# - otf-font-awesome  
+# - powerline (omited)
+# - ttf-ubuntu-font-family  
+# - ranger  
+# - thunar  
+# - lightdm-gtk-greeter-settings (omited)
+# - lxappearance  
+# - nitrogen  
+# - nm-connection-editor  
+# - pavucontrol  
+# - dmenu  
+# - rofi  
+# - conky  
+# - picom  
+# - dunst  
+# - playerctl  
+# - polkit-gnome  
+# - xautolock  
+# - clipit (omited)
+# - udiskie (omited ?)
+# - syncthing-gtk (omited)
+# - syncthing (omited)
+# - remmina  
+# - hplip  
+# - xfce4-terminal  
 #
 # [flatpak]
-# - joplin-desktop
+# - joplin-desktop (omited)
 #                                                                                     
 # ================================================================================== 
 
@@ -86,7 +88,7 @@ set $fmanager1 thunar
 set $fmanager2 "xfce4-terminal -e ranger"
 # set web browser
 set $wbrowser1 firefox
-set $wbrowser2 google-chrome-stable
+set $wbrowser2 vimb
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -169,11 +171,9 @@ bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager2
 bindsym $mod+p exec --no-startup-id "$HOME/.config/i3/dmApplications.sh"
 #
 # preference launcher mode (chord)
-set $mode_preferences |[Open preferences]|> l[i]ghtdm || [l]xappearance || [n]itrogen || n[m]-connection-editor || [p]avucontrol
+set $mode_preferences |[Open preferences]|> [l]xappearance || [n]itrogen || n[m]-connection-editor || [p]avucontrol
 bindsym $mod+Shift+p mode "$mode_preferences"
 mode "$mode_preferences" {
-	bindsym i exec --no-startup-id lightdm-gtk-greeter-settings; mode "default"
-	bindsym l exec --no-startup-id lxappearance; mode "default"
 	bindsym n exec --no-startup-id nitrogen; mode "default"
 	bindsym m exec --no-startup-id nm-connection-editor; mode "default"
 	bindsym p exec --no-startup-id pavucontrol; mode "default"
@@ -567,13 +567,13 @@ bindsym XF86AudioPlay exec --no-startup-id ~/.config/i3/pctl-playPause.sh
 # |-                                                | #
 #
 # pactl: raise volume and send a notification by dunstify
-# bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/.config/i3/dunstify-volume.sh"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 #
 # pactl: decrease volume and send a notification by dunstify
-# bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/.config/i3/dunstify-volume.sh"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 #
 # pactl: Toggle mute
-# bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 #######################################################
 #        I3 BERHABIOUR AND GAPS CONFIGURATION         #
@@ -677,7 +677,9 @@ exec_always --no-startup-id setxkbmap es
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #
 # pulse audio applet: tray icon
-exec --no-startup-id pa-applet --disable-notifications
+# exec --no-startup-id pa-applet --disable-notifications
+# --
+# pa-applet: not availiable for arm architecture
 #
 # network manager applet: tray icon
 # --
@@ -699,19 +701,35 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b -f -c
 #
 # clipit: clipit tray icon
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
+# --
+# clipit: xfce-clipman instead
+#
+# xfce4-clipman: climan tray icon for xfce
+exec --no-startup-id xfce4-clipman
+#
+# pamac-tray: pamac tray icon
+exec --no-startup-id pamac-tray
 #
 # udiskie: autostart as tray icon, no automount nor notify
-exec --no-startup-id udiskie --no-automount --no-notify --tray
+# exec --no-startup-id udiskie --no-automount --no-notify --tray
+# --
+# udiskie: ommited for now
 #
 # syncthing-gtk: autostart as tray icon, no automount nor notify
-exec --no-startup-id syncthing-gtk
+# exec --no-startup-id syncthing-gtk
+# --
+# syncthing-gtk: omited for now
 #
 # mega sync: autostart as tray icon
-exec --no-startup-id megasync
+# exec --no-startup-id megasync
+# --
+# megasync: no availiable for arm
 #
 # dropbox: autostart as tray icon
-exec --no-startup-id dropbox
+# exec --no-startup-id dropbox
+# --
+# dropbox: omited for now
 #
 # remmina: autostart as tray icon
 exec --no-startup-id remmina -i
@@ -720,7 +738,9 @@ exec --no-startup-id remmina -i
 exec --no-startup-id hp-systray
 #
 # joplin: autostart (configured as tray icon startup)
-exec --no-startup-id net.cozic.joplin_desktop
+# exec --no-startup-id net.cozic.joplin_desktop
+# --
+# joplin: not availiable for arm
 #
 # Conky: autostart
 exec --no-startup-id conky

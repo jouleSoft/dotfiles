@@ -126,19 +126,14 @@ ap_format = "{strength}"
 device_format = "{icon} {ap}"
 
 [[block]]
-block = "docker"
-interval = 2
-format = "{running}/{total}"
-
-[[block]]
 block = "pacman"
 interval = 300
-format = "{aur}"
-format_singular = "{aur}"
-format_up_to_date = "{aur}"
+format = "{pacman}"
+format_singular = "{pacman}"
+format_up_to_date = "{pacman}"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 # aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
-aur_command = "checkupdates+aur"
+aur_command = "checkupdates"
 
 [[block]]
 block = "sound"

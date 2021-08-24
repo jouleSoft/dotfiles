@@ -33,8 +33,8 @@ description="Choose from a list of configuration files to edit"
 # Defining the text editor to use.
 # DMEDITOR="xfce4-terminal -e /usr/bin/vim"
 # DMEDITOR="xfce4-terminal -e nvim"
-DMEDITOR="emacsclient -c -a emacs"
-# DMEDITOR="emacsclient -a emacs"
+# DMEDITOR="emacsclient -c -a emacs"
+DMEDITOR="emacsclient -a emacs"
 
 # An array of optiones to choose.
 # You can edit this list to add/remove config files.

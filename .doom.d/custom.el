@@ -14,7 +14,7 @@
       org-journal-file-format "%Y%m%d.org")
 
 ;; Set the default directory when Emacs starts
-(setq default-directory "~/MEGA/org")
+(setq default-directory "~/org")
 
 ;; Indentation
 (setq-default tab-width 2)
