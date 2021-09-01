@@ -29,7 +29,8 @@ description="Open an url from a list"
 
 #Global operational variables
 # NAV="firefox"
-NAV="surf"
+# NAV="surf"
+NAV="vimb"
 
 # An array of optiones to choose.
 # You can edit this list to add/remove config files.

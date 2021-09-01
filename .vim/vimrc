@@ -85,7 +85,17 @@ call plug#begin('~/.vim/plugged')
 " --Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
+"   ycm: libtinfo.so no compatible with aarch64
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plug 'dense-analysis/ale'
 Plug 'ervandew/supertab'
 Plug 'mattn/emmet-vim'
@@ -102,9 +112,10 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
 " --Themes--
-" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline-themes'
-"!! [AUR] nerd-fonts-hack
+"  !! [AUR] nerd-fonts-hack
+"   OR...
+"  !! [AUR] ttf-nerd-fonts-symbols-mono
 Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 call plug#end()
@@ -127,7 +138,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
@@ -137,3 +148,9 @@ let g:ale_completion_autoimport = 1
 " --emmet configuration
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" --Syntastic configuration--
+let g:airline_powerline_fonts = 1
+
+"--Deoplete configuration--
+let g:deoplete#enable_at_startup = 1

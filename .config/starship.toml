@@ -1,3 +1,8 @@
+# ~/.config/starship.toml
+
+#format
+format = "$all"
+
 # Avoid to print a new line at the beginning of the prompt
 add_newline = false
 
@@ -14,3 +19,7 @@ disabled = false
 
 [line_break]
 disabled = true
+
+[python]
+# font: awesome5
+symbol = "  "

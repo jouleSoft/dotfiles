@@ -20,16 +20,16 @@ set fish_greeting ""
 # ---------------------
 
 # PATH appends
-set -a --export PATH "$HOME/github/js-sh"
+set -a --export PATH "$HOME/workspace/bash-scripts"
 set -a --export PATH "$HOME/.emacs.d/bin"
 set -a --export PATH "$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 # github
-set --export github "$HOME/github"
+set --export github "$HOME/workspace"
 # js-sh
-set --export jssh "$HOME/github/js-sh"
+set --export js_sh "$HOME/workspace/bash-scripts"
 # dotfiles
-set --export jsdotfiles "$HOME/github/dotfiles"
+set --export jsdotfiles "$HOME/workspace/dotfiles"
 
 ###############
 ### ALIASES ###
