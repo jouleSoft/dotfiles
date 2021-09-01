@@ -12,8 +12,11 @@
       org-journal-date-format "%a, %Y-%m-%d"
       org-journal-file-format "%Y%m%d.org")
 
+;; Configuración de org-captura-journal
+(setq +org-capture-journal-file "~/Nextcloud/org/personal.org")
+
 ;; Directorio de inicio al abrir emacs
-(setq default-directory "~/")
+(setq default-directory "~/Nextcloud/org/")
 
 ;; Información relativa a org-capture
 ;; Definir variables:
