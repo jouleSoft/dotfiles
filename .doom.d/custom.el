@@ -1,12 +1,11 @@
-;; Custom holydays
+;; Vacaciones personalizadas
 (setq holiday-other-holidays
       '((holiday-fixed 1 6 "Día de Reyes")))
 
-;; Monday as first of the week
+;; La semana comienza el lunes
 (setq calendar-week-start-day 1)
 
-;; org-journal configuration
-;; open: <space> n j j
+;; Configuración de org-journal
 (setq org-journal-dir "diario/"
       org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "* "
@@ -24,9 +23,6 @@
 ;;   (defvar +org-capture-todo-file "personal.org")
 ;;   (defvar +org-capture-notes-file "personal.org")
 ;;   (defvar +org-capture-journal-file "personal.org")
-
-;; Set the default directory when Emacs starts
-(setq default-directory "~/Nextcloud/org")
 
 ;; Indentation
 (setq-default tab-width 2)
