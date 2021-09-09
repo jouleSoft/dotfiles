@@ -115,7 +115,7 @@ Plug 'raimondi/delimitmate'
 Plug 'vim-airline/vim-airline-themes'
 "  !! [AUR] nerd-fonts-hack
 "   OR...
-"  !! [AUR] ttf-nerd-fonts-symbols-mono
+"  !! [Community] ttf-nerd-fonts-symbols-mono
 Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 call plug#end()
