@@ -1,6 +1,20 @@
-" jouleSoft
-" vim configuration file
+" jouleSoft (c) 2020 - 2021
 "
+" vim/nvim configuration file
+"
+" -.- ~/.vim/vimrc -.-
+"
+" PREREQUISITES
+" --
+" For nvim:
+"   Create ~/.config/nvim/init.vim
+"   Add the following lines:
+"     set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"     let &packpath=&runtimepath
+"     source ~/.vim/vimrc
+" --
+"
+
 " --settings--
 set number relativenumber		" Show line numbers and do it relatively
 set mouse=a				" Use the mouse in all modes (Normal, Visual, Insert Command-Line)
@@ -71,7 +85,8 @@ nmap <leader>mp :call Vim_Markdown_Preview()<CR>
 let vim_markwoen_preview_browser = 'firefox'
 let vim_markdown_preview_github = 1
 
-
+" -.- PLUGIN MANAGER -.-
+"
 " --installing plug--
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -85,9 +100,11 @@ call plug#begin('~/.vim/plugged')
 " --Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-" Plug 'valloric/youcompleteme'
-"   ycm: libtinfo.so no compatible with aarch64
+Plug 'dense-analysis/ale'
+Plug 'ervandew/supertab'
+Plug 'mattn/emmet-vim'
 
+" --Autocompletion--
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -96,12 +113,6 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'dense-analysis/ale'
-Plug 'ervandew/supertab'
-Plug 'mattn/emmet-vim'
-" --Markdown
-" Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-" Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 " --PowerShell
 Plug 'pprovost/vim-ps1', {'for': 'ps1'}
 " --Tools--
@@ -112,10 +123,13 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'majutsushi/tagbar'
 Plug 'raimondi/delimitmate'
 " --Themes--
+"  DEPENDENCIES
+"  ------------
+"  One of the following:
+"  - [AUR] nerd-fonts-hack
+"  - [Community] ttf-nerd-fonts-symbols-mono
+"
 Plug 'vim-airline/vim-airline-themes'
-"  !! [AUR] nerd-fonts-hack
-"   OR...
-"  !! [Community] ttf-nerd-fonts-symbols-mono
 Plug 'ryanoasis/vim-devicons'
 " -------------------------------
 call plug#end()
