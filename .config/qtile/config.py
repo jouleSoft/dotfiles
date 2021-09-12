@@ -44,6 +44,7 @@
 # SOFTWARE.                                                                          #
 ######################################################################################
 
+# -.- ~/.config/qtile/config.py -.-
 
 import os
 import subprocess
@@ -94,14 +95,14 @@ alt = "mod1"
 
 # --APPLICATIONS--
 # Set terminal
-# terminal = guess_terminal()
-terminal1 = "alacritty"
-terminal2 = "xfce4-terminal -e bash"
+#terminal = guess_terminal()
+terminal1 = "xfce4-terminal"
+terminal2 = terminal1 + " -e bash"
 # set file manager
-fmanager1 = "alacritty -e ranger"
+fmanager1 = terminal1 + " -e ranger"
 fmanager2 = "thunar"
 # set web browser
-wbrowser1 = "surf https://duckduckgo.com"
+wbrowser1 = "vimb https://duckduckgo.com"
 wbrowser2 = "firefox"
 # Set launcher
 launcher = "rofi\
@@ -449,14 +450,8 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.CapsNumLockIndicator(),
                 widget.KeyboardLayout(
                     configured_keyboards = ['es']
-                ),
-                widget.Memory(
-                    update_interval = 1.0,
-                    measure_mem = 'G',
-                    format = '{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
                 ),
                 widget.CheckUpdates(
                     colour_no_updates=no_ups,
@@ -465,7 +460,7 @@ screens = [
                     display_format='',
                     distro='Arch',
                     fontsize=15,
-                    execute='alacritty -e paru -Syu',
+                    execute='xfce4-terminal -e pacman -Syu',
                     no_update_string='',
                     update_interval=60,
                 ),
