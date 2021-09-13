@@ -155,10 +155,6 @@ keys = [
     #
     # preference launcher mode (chord)
     #
-    # umenu: launcher script for terminal applications
-    Key([mod,alt], "p", lazy.spawn("alacritty -e /home/jjimenez/.config/i3/umenu-term-apps.sh"),
-        desc="open umenu apps"),
-    #
     # rofi: run an application
     Key([mod, alt, "control"], "p", lazy.spawn(launcher), desc="Run launcher"),
     #
@@ -311,11 +307,7 @@ keys = [
 ############################
 
 __groups = {
-    1: Group("",
-             matches=[
-                 Match(wm_class=["kitty"]),
-                 Match(wm_class=["xfce4-terminal"]),
-             ]),
+    1: Group("",),
     2: Group("",
              matches=[Match(wm_class=["firefox"])],
              layout=''
@@ -415,8 +407,8 @@ layouts = [
 #########################
 
 widget_defaults = dict(
-    font='Ubuntu',
-    fontsize=15,
+    font='DejaVuSans',
+    fontsize=13,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -425,14 +417,14 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Sep(
-                    linewidth = 0,
-                    padding = 6,
-                    background = back,
+                widget.TextBox(
+                    text='jS',
+                    tmt='{}',
+                    font='Inconsolata',
+                    markup=True
                 ),
                 widget.CurrentLayout(
                     padding=None,
-                    fontsize=15,
                 ),
                 widget.GroupBox(
                     active=active_fg,
@@ -453,24 +445,33 @@ screens = [
                 widget.KeyboardLayout(
                     configured_keyboards = ['es']
                 ),
+                widget.Memory(
+                    update_interval=1.0,
+                    padding=None,
+                    format='{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}'
+                ),
+                widget.ThermalSensor(
+                    threshold=80,
+                    update_interval=2
+                ),
+                widget.Clock(
+                    format='%a %d-%m-%y %H:%M %p',
+                    padding=None,
+                ),
+                widget.Systray(),
                 widget.CheckUpdates(
                     colour_no_updates=no_ups,
                     colour_have_updates=ups,
                     custom_command='checkupdates+aur',
                     display_format='',
                     distro='Arch',
-                    fontsize=15,
                     execute='xfce4-terminal -e pacman -Syu',
                     no_update_string='',
                     update_interval=60,
-                ),
-                widget.Systray(),
-                widget.Clock(
-                    format='%d-%m-%Y %a %H:%M %p',
-                    padding=None,
+                    fontsize=15,
                 ),
             ],
-            20,
+            23,
             background=back,
             opacity=1,
         ),

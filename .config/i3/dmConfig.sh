@@ -29,10 +29,12 @@ script_name="dmConfig.sh"
 version="v.0.1"
 description="Choose from a list of configuration files to edit"
 
+declare DMEDITOR
+
 #Global operational variables
 # Defining the text editor to use.
 # DMEDITOR="xfce4-terminal -e /usr/bin/vim"
-# DMEDITOR="xfce4-terminal -e nvim"
+# DMEDITOR="xfce4-terminal -e /usr/bin/nvim"
 # DMEDITOR="emacsclient -c -a emacs"
 DMEDITOR="emacsclient -a emacs"
 

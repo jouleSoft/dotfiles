@@ -5,11 +5,12 @@ setxkbmap es &
 nitrogen --restore &
 picom -b -f -c &
 conky &
-nm-applet &
-clipit &
+# nm-applet &
+# clipit &
 blueman-applet &
 xautolock -time 10 -locker blurlock &
-syncthing-gtk &
+# syncthing-gtk &
 udiskie --no-automount --no-notify --tray &
-megasync &
-pa-applet &
+# megasync &
+# pa-applet &
+pamac-tray &
