@@ -14,3 +14,4 @@ udiskie --no-automount --no-notify --tray &
 # megasync &
 # pa-applet &
 pamac-tray &
+nextcloud &

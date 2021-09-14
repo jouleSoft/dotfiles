@@ -458,7 +458,6 @@ screens = [
                     format='%a %d-%m-%y %H:%M %p',
                     padding=None,
                 ),
-                widget.Systray(),
                 widget.CheckUpdates(
                     colour_no_updates=no_ups,
                     colour_have_updates=ups,
@@ -470,7 +469,8 @@ screens = [
                     update_interval=60,
                     fontsize=15,
                 ),
-            ],
+                 widget.Systray(),
+           ],
             23,
             background=back,
             opacity=1,
