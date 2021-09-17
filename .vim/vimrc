@@ -8,6 +8,7 @@
 " --
 " For nvim:
 "   Create ~/.config/nvim/init.vim
+"
 "   Add the following lines:
 "     set runtimepath^=~/.vim runtimepath+=~/.vim/after
 "     let &packpath=&runtimepath
@@ -113,6 +114,9 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" --Markdown
+Plug 'godlygeek/tabular', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 " --PowerShell
 Plug 'pprovost/vim-ps1', {'for': 'ps1'}
 " --Tools--
