@@ -1,5 +1,6 @@
 @import 'colors.css';
 
+/*Padding for xfce-terminal*/
 VteTerminal, vte-terminal {
-    padding: 16px;
+    padding: 12px;
 }
