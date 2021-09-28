@@ -44,6 +44,7 @@ declare -a options=(
 "duckduckgo       | https://duckduckgo.com"
 "el-atareao       | https://www.atareao.es/blog/"
 "Font Awesome     | https://fontawesome.com/v4.7.0/cheatsheet/"
+"i3               | https://i3wm.org/docs/userguide.html"
 "i3status         | https://i3wm.org/i3status/manpage.html"
 "i3status-rust    | https://github.com/greshake/i3status-rust"
 "Cockney RS       | https://londontopia.net/londonism/fun-london/language-top-100-cockney-rhyming-slang-words-and-phrases/"

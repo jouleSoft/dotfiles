@@ -127,6 +127,21 @@ set $ws8 8:
 # Preferences
 set $ws9 9:
 
+
+#######################################################
+#         ASSIGNING WORKSPACES TO MONITORS            #
+#######################################################
+
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output nonprimary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output primary
+workspace $ws7 output primary
+workspace $ws8 output primary
+workspace $ws9 output primary
+
 #######################################################
 #         PRINCIPAL KEYBINDING CONFIGURATION          #
 #######################################################
@@ -187,7 +202,7 @@ mode "$mode_preferences" {
 bindsym $mod+$alt+p exec --no-startup-id "$terminal1 -e $HOME/.config/i3/umenu-term-apps.sh"
 #
 # rofi: run an application
-bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Ubuntu 10'
+bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Cantarell 10'
 #
 # dmenu: launch un run mode
 bindsym $mod+$alt+Ctrl+Shift+p exec --no-startup-id "dmenu_run -i -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p '>'"
@@ -538,10 +553,10 @@ bindsym $mod+Shift+XF86Launch6 --release exec --no-startup-id i3-scrot -s
 # |           Screen brightness control             | #
 #
 # Screen brightness up
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 #
 # Screen brightness down
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # |         XF86Audio[Next|Prev|Play]-Key           | #
 # |-------------------------------------------------| #
@@ -646,7 +661,7 @@ assign [class=vlc|spotify] $ws4
 assign [class=feh] $ws5
 assign [class=TelegramDesktop] $ws6
 assign [class=Remote-viewer] $ws7
-assign [class=Virt-manager|org.remmina.Remmina|Lxappearance|Conky-manager|Nitrogen|Nm-connection-editor] $ws9
+assign [class=Virt-manager|org.remmina.Remmina|Lxappearance|Nitrogen|Nm-connection-editor|Pavucontrol] $ws9
 for_window [class=Lxappearance|MEGAsync|Conky-manager] floating enable
 for_window [class=Virt-manager|Lxappearance|Nitrogen|Evince|vlc|feh|Nm-connection-editor|Emacs|Remote-viewer] focus
 
@@ -745,6 +760,9 @@ exec --no-startup-id hp-systray
 # Conky: autostart
 exec --no-startup-id conky
 #
+# slimbook-batery: autostart
+exec --no-startup-id slimbookbattery
+#
 # polybar: launcher script
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # |-                                                  |
@@ -755,42 +773,83 @@ exec --no-startup-id conky
 #               I3 BAR CONFIGURATION                  #
 #######################################################
 
-# i3-bar
+# Laptop monitor bar
 bar {
-    # i3-bar font configuration
-	font pango:Ubuntu, 11
-    # i3-bar position <top|bottom>
-	position top
-    # i3-bar strip workspace numbers <yes|no>
-	strip_workspace_numbers yes
-    # |-                                              |
-    # |if yes, workspaces has been declared           |
-    # |as num:str, then only the 'str' value will     |
-    # |be showed                                      |
-    # |-                                              |
-    #
-    # i3-bar status command application
-    # |-                                              |
-    # |* i3status by default                          |
-    # |* i3status-rust in use                         |
-    # |-                                              |
-    #
-        status_command i3status-rs     #i3status-rust
-    #   status_command i3status        #i3status
-    # i3-bar color configuration
-	colors {
-		background #282A36
-		statusline #F8F8F2
-		separator  #44475A
+  output primary
+  #i3-bar font configuration
+  font pango:Cantarell, 11
+  #i3-bar position <top|bottom>
+  position top
+  #i3-bar strip workspace numbers <yes|no>
+  strip_workspace_numbers yes
+  #|-                                              |
+  #|if yes, workspaces has been declared           |
+  #|as num:str, then only the 'str' value will     |
+  #|be showed                                      |
+  #|-                                              |
+  
+  #i3-bar status command application
+  #|-                                              |
+  #|* i3status by default                          |
+  #|* i3status-rust in use                         |
+  #|-                                              |
+  #
+  status_command i3status-rs     #i3status-rust
+  #status_command i3status       #i3status
+  #system tray
+  tray_output primary
+  #i3-bar color configuration
+  colors {
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
 
-		focused_workspace  #44475A #44475A #F8F8F2
-		active_workspace   #282A36 #44475A #F8F8F2
-		inactive_workspace #282A36 #282A36 #BFBFBF
-		urgent_workspace   #FF5555 #FF5555 #F8F8F2
-		binding_mode       #6272A4 #6272A4 #F8F8F2
- 	}
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #6272A4 #6272A4 #F8F8F2
+  }
 }
 
+# secundary monitor bar
+bar {
+  output nonprimary
+  #i3-bar font configuration
+  font pango:Cantarell, 9
+  #i3-bar position <top|bottom>
+  position top
+  #i3-bar strip workspace numbers <yes|no>
+  strip_workspace_numbers yes
+  #|-                                              |
+  #|if yes, workspaces has been declared           |
+  #|as num:str, then only the 'str' value will     |
+  #|be showed                                      |
+  #|-                                              |
+  #
+  #Show binding mode indicator
+  binding_mode_indicator no
+  #i3-bar status command application
+  #|-                                              |
+  #|* i3status by default                          |
+  #|* i3status-rust in use                         |
+  #|-                                              |
+  #
+  #status_command i3status-rs   #i3status-rust
+  status_command i3status       #i3status
+  #i3-bar color configuration
+  colors {
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
+
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #6272A4 #6272A4 #F8F8F2
+  }
+}
 
 #######################################################
 #                  OLD AND UNUSED                     #

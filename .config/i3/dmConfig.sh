@@ -34,9 +34,9 @@ declare DMEDITOR
 #Global operational variables
 # Defining the text editor to use.
 # DMEDITOR="xfce4-terminal -e /usr/bin/vim"
-# DMEDITOR="xfce4-terminal -e /usr/bin/nvim"
+DMEDITOR="kitty /usr/bin/nvim"
 # DMEDITOR="emacsclient -c -a emacs"
-DMEDITOR="emacsclient -a emacs"
+# DMEDITOR="emacsclient -a emacs"
 
 # An array of optiones to choose.
 # You can edit this list to add/remove config files.
