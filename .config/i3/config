@@ -5,56 +5,6 @@
 #                                                                                    
 # PATH:   ~/.config/i3/config                                                        
 #
-# ================================================================================== 
-#
-# DEPENDENCIES:
-# [aur]
-# - dropbox (omited)
-# - google-chrome-stable (omited)
-# - i3exit
-# - i3-scrot
-# - megasync (not-arm)
-# - surf-git (omited)
-# - vimb
-# - pa-applet-git (no availiable for arm)
-# - thunar-dropbox (omited)
-# 
-# [community]
-# - alacritty
-# - i3-gaps
-# - i3status-rust  
-# - firefox  
-# - ttf-font-awesome  
-# - otf-font-awesome  
-# - powerline (omited)
-# - ttf-ubuntu-font-family  
-# - ranger  
-# - thunar  
-# - lightdm-gtk-greeter-settings (omited)
-# - lxappearance  
-# - nitrogen  
-# - nm-connection-editor  
-# - pavucontrol  
-# - dmenu  
-# - rofi  
-# - conky  
-# - picom  
-# - dunst  
-# - playerctl  
-# - polkit-gnome  
-# - xautolock  
-# - clipit (omited)
-# - udiskie (omited ?)
-# - syncthing-gtk (omited)
-# - syncthing (omited)
-# - remmina  
-# - hplip  
-# - xfce4-terminal  
-#
-# [flatpak]
-# - joplin-desktop (omited)
-#                                                                                     
-# ================================================================================== 
 
 #######################
 ### KEYBINDING INFO ###
@@ -155,7 +105,7 @@ bindsym $mod+Return exec --no-startup-id $terminal1
 bindsym $mod+Shift+Return exec --no-startup-id $terminal2
 #
 # start a web browser
-bindsym $mod+$alt+Return exec --no-startup-id $wbrowser2
+bindsym $mod+$alt+Return exec --no-startup-id "$wbrowser2 duckduckgo.com"
 #
 # firefox chord launcher
 set $mode_firefox |[Firefox]|> [n]ormal [p]rivate
@@ -553,10 +503,10 @@ bindsym $mod+Shift+XF86Launch6 --release exec --no-startup-id i3-scrot -s
 # |           Screen brightness control             | #
 #
 # Screen brightness up
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 5"
 #
 # Screen brightness down
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5"
 
 # |         XF86Audio[Next|Prev|Play]-Key           | #
 # |-------------------------------------------------| #
