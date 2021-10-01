@@ -59,6 +59,7 @@ declare -a options=(
 "vim-leaderkey    | https://tuckerchapman.com/2018/06/16/how-to-use-the-vim-leader-key/"
 "vim-plug         | https://github.com/junegunn/vim-plug"
 "wordreference    | https://www.wordreference.com/"
+"xrandr-config    | https://blog.stigok.com/2017/08/14/multimonitor-setup-with-i3-and-xrandr-on-arch-linux.html"
 "zabbix-es        | https://www.zabbix-es.com.es/index.php/Zabbix_de_0_a_100_-_Documentaci%C3%B3n"
 "quit"
 )

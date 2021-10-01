@@ -31,14 +31,17 @@
 set $mod Mod4
 set $alt Mod1
 # set terminal
-set $terminal1 xfce4-terminal
-set $terminal2 "alacritty -e bash"
+set $terminal1 kitty
+set $terminal2 "xfce4-terminal -e bash"
 # set file manager
 set $fmanager1 thunar
 set $fmanager2 "xfce4-terminal -e ranger"
 # set web browser
 set $wbrowser1 firefox
 set $wbrowser2 vimb
+# set monitors
+set $primary "eDP"
+set $nonprimary1 "HDMI-A-0"
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -82,15 +85,15 @@ set $ws9 9:
 #         ASSIGNING WORKSPACES TO MONITORS            #
 #######################################################
 
-workspace $ws1 output primary
-workspace $ws2 output primary
-workspace $ws3 output nonprimary
-workspace $ws4 output primary
-workspace $ws5 output primary
-workspace $ws6 output primary
-workspace $ws7 output primary
-workspace $ws8 output primary
-workspace $ws9 output primary
+workspace $ws1 output $primary
+workspace $ws2 output $nonprimary1
+workspace $ws3 output $nonprimary1
+workspace $ws4 output $nonprimary1
+workspace $ws5 output $primary
+workspace $ws6 output $primary
+workspace $ws7 output $primary
+workspace $ws8 output $nonprimary1
+workspace $ws9 output $primary
 
 #######################################################
 #         PRINCIPAL KEYBINDING CONFIGURATION          #
@@ -604,16 +607,16 @@ hide_edge_borders smart_no_gaps
 #
 # Window rules, you can find the window class using xprop
 # for_window [class="^.*"] border pixel 2
-assign [class=kitty] $ws1
+# assign [class=kitty] $ws1
 assign [class=Emacs|Joplin|Google-chrome] $ws2
 assign [class=firefox] $ws3
-assign [class=vlc|spotify] $ws4
+assign [class=vlc|Spotify] $ws4
 assign [class=feh] $ws5
 assign [class=TelegramDesktop] $ws6
-assign [class=Remote-viewer] $ws7
-assign [class=Virt-manager|org.remmina.Remmina|Lxappearance|Nitrogen|Nm-connection-editor|Pavucontrol] $ws9
-for_window [class=Lxappearance|MEGAsync|Conky-manager] floating enable
-for_window [class=Virt-manager|Lxappearance|Nitrogen|Evince|vlc|feh|Nm-connection-editor|Emacs|Remote-viewer] focus
+assign [class=Remote-viewer|org.remmina.Remmina] $ws7
+assign [class=Virt-manager|Lxappearance|Nitrogen|Pavucontrol|Pamac-manager] $ws9
+for_window [class=Lxappearance|MEGAsync] floating enable
+for_window [class=Virt-manager|Lxappearance|Nitrogen|Evince|vlc|feh|Nm-connection-editor|Emacs|Remote-viewer|Firefox|Pamac-manager] focus
 
 # |                  Window colors                  | #
 # |-------------------------------------------------| #
@@ -687,9 +690,7 @@ exec --no-startup-id pamac-tray
 # syncthing-gtk: omited for now
 #
 # mega sync: autostart as tray icon
-# exec --no-startup-id megasync
-# --
-# megasync: no availiable for arm
+exec --no-startup-id megasync
 #
 # dropbox: autostart as tray icon
 # exec --no-startup-id dropbox
@@ -703,15 +704,16 @@ exec --no-startup-id remmina -i
 exec --no-startup-id hp-systray
 #
 # joplin: autostart (configured as tray icon startup)
-# exec --no-startup-id net.cozic.joplin_desktop
-# --
-# joplin: not availiable for arm
+exec --no-startup-id joplin-desktop
 #
 # Conky: autostart
 exec --no-startup-id conky
 #
 # slimbook-batery: autostart
 exec --no-startup-id slimbookbattery
+#
+# Nextcloud: autostart
+exec --no-startup-id nextcloud
 #
 # polybar: launcher script
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -787,6 +789,7 @@ bar {
   #
   #status_command i3status-rs   #i3status-rust
   status_command i3status       #i3status
+  tray_output primary
   #i3-bar color configuration
   colors {
     background #282A36
