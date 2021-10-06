@@ -25,7 +25,7 @@ set -a --export PATH "$HOME/.emacs.d/bin"
 set -a --export PATH "$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 # github_uri
-set --export github_repo "https://github.com/joulesoft"
+set --export github_repo "https://github.com/jouleSoft"
 # github
 set --export github "$HOME/workspace"
 # js-sh
