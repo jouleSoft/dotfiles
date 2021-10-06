@@ -135,11 +135,12 @@ Plug 'raimondi/delimitmate'
 "
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " -------------------------------
 call plug#end()
 
 " --Dracula color scheme--
-" colorscheme dracula
+colorscheme dracula
 
 " --NERDTree commands--
 let NERDTreeQuitOnOpen=1
