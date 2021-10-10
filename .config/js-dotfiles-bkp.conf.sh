@@ -64,4 +64,5 @@ declare -a dotLocal=(
 ".local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf"
 )
 
+#Avoid spaces as array element separator
 IFS=""
