@@ -61,5 +61,7 @@ declare -a dotDoom=(
 #dotfiles from '~/.local' directory
 declare -a dotLocal=(
 ".local/share/xfce4/terminal/colorschemes/Dracula.theme"
-".local/share/fonts"
+".local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf"
 )
+
+IFS=""
