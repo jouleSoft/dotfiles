@@ -5,7 +5,6 @@
 #                                         
 # ~/.config/fish/config.fish
 #
-#
 # ** UTF-8 **
 #                                         
 
