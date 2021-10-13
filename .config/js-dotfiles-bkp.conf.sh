@@ -30,6 +30,8 @@ declare -a dotConfig=(
 ".config/i3/dunstify-volume.sh"
 ".config/i3/pctl-playPause.sh"
 ".config/i3/umenu-term-apps.sh"
+".config/js-check-repo.conf.sh"
+".config/js-dotfiles-bkp.conf.sh"
 ".config/kitty/diff.conf"
 ".config/kitty/dracula.conf"
 ".config/kitty/kitty.conf"
@@ -47,7 +49,6 @@ declare -a dotConfig=(
 ".config/ranger/scope.sh"
 ".config/rofi/config.rasi"
 ".config/starship.toml"
-".config/js-dotfiles-bkp.conf.sh"
 )
 
 #dotfiles from '~/.doom.d' directory
