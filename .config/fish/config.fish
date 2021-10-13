@@ -45,13 +45,18 @@ alias history-uniq='history|sort|uniq|batcat'       # Show history but uniq view
 alias la='ls -lh'                                   # List layout,  human readable and hidden files
 alias ll='ls -lha'                                  # List layout and human readable
 alias ls='exa'                                      # Use 'exa' instead 'ls'
-alias mv='mv -vi'                                   # Verbose and interactiva if overwrite
+alias mv='mv -vi'                                   # Verbose and interactive if overwrite
 alias rm='rm -v'                                    # Verbose
 
 # Recalbox http/ssh aliases
 alias rbox='/usr/bin/firefox http://recalbox'
 alias rbox-kodi='/usr/bin/firefox http://recalbox:8081'
 alias rbox-ssh='/usr/bin/ssh root@recalbox'
+
+# Imported aliases
+if test -e "$HOME/MEGA/Scripts/fish.aliases"
+  . "$HOME/MEGA/Scripts/fish.aliases"
+end
 
 ################
 ### AUTOEXEC ###
