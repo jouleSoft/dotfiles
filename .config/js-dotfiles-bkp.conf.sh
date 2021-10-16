@@ -6,6 +6,7 @@
 #dotfiles from '~/' directory
 declare -a dotFiles=(
 ".bashrc"
+".zshrc"
 ".vim/vimrc"
 )
 

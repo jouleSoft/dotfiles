@@ -38,7 +38,7 @@ set --export jsdotfiles "$HOME/workspace/dotfiles"
 ###############
 
 # Commands
-alias bat='batcat --theme Monokai Extended'         # Set color theme for bat
+alias bat='bat --theme "Monokai Extended"'            # Set color theme for bat
 alias cp='cp -vi'                                   # Verbose and interactiva if overwrite
 alias free='free -m'                                # Show values in mebibytes
 alias history-uniq='history|sort|uniq|batcat'       # Show history but uniq view and sorted
