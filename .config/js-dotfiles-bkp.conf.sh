@@ -12,56 +12,37 @@ declare -a dotFiles=(
 
 #dotfiles from '~/.config' directory
 declare -a dotConfig=(
-".config/alacritty/alacritty.yml"
-".config/alacritty/dracula.yml"
-".config/alacritty/template.yml"
-".config/conky/conky.conf"
+".config/alacritty"
+".config/conky"
 ".config/dunst/dunstrc"
-".config/fish/config.fish"
-".config/fish/fish_variables"
+".config/fish"
 ".config/gtk-3.0/gtk.css"
 ".config/i3status-rust/config.toml"
 ".config/i3status/config"
-".config/i3/config"
-".config/i3/dmApplications.sh"
-".config/i3/dmConfig.sh"
-".config/i3/dmDocs.sh"
-".config/i3/dmScripts.sh"
-".config/i3/dmUrl.sh"
-".config/i3/dunstify-volume.sh"
-".config/i3/pctl-playPause.sh"
-".config/i3/umenu-term-apps.sh"
+".config/i3"
 ".config/js-check-repo.conf.sh"
 ".config/js-dotfiles-bkp.conf.sh"
 ".config/kitty"
 ".config/nvim/init.vim"
 ".config/picom.conf"
-".config/polybar/config"
-".config/polybar/launch.sh"
-".config/polybar/spotify_status.py"
-".config/qtile/config.py"
-".config/qtile/autostart.sh"
-".config/ranger/commands.py"
-".config/ranger/commands_full.py"
-".config/ranger/rc.conf"
-".config/ranger/rifle.conf"
-".config/ranger/scope.sh"
+".config/polybar"
+".config/qtile"
+".config/qtile"
+".config/ranger"
 ".config/rofi/config.rasi"
 ".config/starship.toml"
 )
 
 #dotfiles from '~/.doom.d' directory
 declare -a dotDoom=(
-".doom.d/init.el"
-".doom.d/config.el"
-".doom.d/custom.el"
-".doom.d/packages.el"
+".doom.d"
 )
 
 #dotfiles from '~/.local' directory
 declare -a dotLocal=(
 ".local/share/xfce4/terminal/colorschemes/Dracula.theme"
 ".local/share/fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf"
+".local/share/konsole"
 )
 
 #Avoid spaces as array element separator
