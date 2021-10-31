@@ -31,8 +31,8 @@
 set $mod Mod4
 set $alt Mod1
 # set terminal
-set $terminal1 kitty
-set $terminal2 "xfce4-terminal -e bash"
+set $terminal1 "xfce4-terminal"
+set $terminal2 "kitty bash"
 # set file manager
 set $fmanager1 thunar
 set $fmanager2 "xfce4-terminal -e ranger"
@@ -139,9 +139,11 @@ bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager2
 bindsym $mod+p exec --no-startup-id "$HOME/.config/i3/dmApplications.sh"
 #
 # preference launcher mode (chord)
-set $mode_preferences |[Open preferences]|> [l]xappearance || [n]itrogen || n[m]-connection-editor || [p]avucontrol
+set $mode_preferences |[Open preferences]|> [a]randr || [l]xappearance || [n]itrogen || n[m]-connection-editor || [p]avucontrol
 bindsym $mod+Shift+p mode "$mode_preferences"
 mode "$mode_preferences" {
+	bindsym a exec --no-startup-id arandr; mode "default"
+	bindsym l exec --no-startup-id lxappearance; mode "default"
 	bindsym n exec --no-startup-id nitrogen; mode "default"
 	bindsym m exec --no-startup-id nm-connection-editor; mode "default"
 	bindsym p exec --no-startup-id pavucontrol; mode "default"
@@ -155,7 +157,10 @@ mode "$mode_preferences" {
 bindsym $mod+$alt+p exec --no-startup-id "$HOME/.config/i3/dmScripts.sh"
 #
 # rofi: run an application
-bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Cantarell 10'
+# bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -lines 12 \
+#             -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Cantarell 10'
+bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -modi drun -show drun \
+		-config ~/.config/rofi/rofidmenu.rasi
 #
 # dmenu: launch un run mode
 bindsym $mod+$alt+Ctrl+Shift+p exec --no-startup-id "dmenu_run -i -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p '>'"
@@ -195,7 +200,7 @@ bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux|grep i3-legend.conf|gr
 bindsym $mod+$alt+t exec --no-startup-id pkill picom
 #
 # start compositor
-bindsym $mod+$alt+Shift+t exec --no-startup-id picom -b -f -c
+bindsym $mod+$alt+Shift+t exec --no-startup-id picom -CGb
 #
 # kill network manager applet (nm-applet)
 # bindsym $mod+$alt+Ctrl+t exec --no-startup-id pkill nm-applet
@@ -567,7 +572,7 @@ hide_edge_borders none
 # |-------------------------------------------------| #
 #
 # Font for window titles
-font pango:Ubuntu 10
+font pango:Noto Sans Regular 10
 #
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -607,26 +612,80 @@ hide_edge_borders smart_no_gaps
 #
 # Window rules, you can find the window class using xprop
 # for_window [class="^.*"] border pixel 2
-# assign [class=kitty] $ws1
-assign [class=Emacs|Joplin|Google-chrome] $ws2
+assign [class=kitty] $ws1
+assign [class=Xfce4-terminal] $ws1
+assign [class="Emacs" instance="emacs"] $ws2
+assign [class=Joplin] $ws2
+assign [class=Google-chrome] $ws2
 assign [class=firefox] $ws3
-assign [class=vlc|Spotify] $ws4
-assign [class=feh] $ws5
+assign [class="vlc" instance="vlc"] $ws4
+assign [class=Spotify] $ws4
+assign [class="feh" instance="feh"] $ws5
 assign [class=TelegramDesktop] $ws6
-assign [class=Remote-viewer|org.remmina.Remmina] $ws7
-assign [class=Virt-manager|Lxappearance|Nitrogen|Pavucontrol|Pamac-manager] $ws9
-for_window [class=Lxappearance|MEGAsync] floating enable
-for_window [class=Virt-manager|Lxappearance|Nitrogen|Evince|vlc|feh|Nm-connection-editor|Emacs|Remote-viewer|Firefox|Pamac-manager] focus
+assign [class=Remote-viewer] $ws7
+assign [class=org.remmina.Remmina] $ws7
+assign [class="Virt-manager" instance="virt-manager"] $ws9
+assign [class="Lxappearance" instance="lxappearance"] $ws9
+assign [class="Nitrogen" instance="nitrogen"] $ws9
+assign [class="Nm-connection-editor" instance="nm-connection-editor"] $ws9
+assign [class=Pavucontrol] $ws9
+assign [class=Pamac-manager] $ws9
+
+# set focus to a new instance of these applciations
+for_window [class="Virt-manager" instance="virt-manager"] focus
+for_window [class="Lxappearance" instance="lxappearance"] focus
+for_window [class="Nitrogen" instance="nitrogen"] focus
+for_window [class="Evince" instance="evince"] focus
+for_window [class="vlc" instance="vlc"] focus
+for_window [class="feh" instance="feh"] focus
+for_window [class="Nm-connection-editor" instance="nm-connection-editor"] focus
+for_window [class="Emacs" instance="emacs"] focus
+for_window [class="Remote-viewer" instance="remote-viewer"] focus
+for_window [class="firefox" instance="firefox"] focus
+for_window [class="Pamac-manager"] focus
+
+# set floating (nontiling)for apps needing it
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="MEGAsync" instance="megasync"] floating enable
+for_window [class="Lxappearance" instance="lxappearance"] floating enable
+for_window [class="Nitrogen" instance="nitrogen"] floating enable
+
+#set floating (nontiling) for special apps
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
 
 # |                  Window colors                  | #
 # |-------------------------------------------------| #
 #
-# class                 border  bground text    indicator child_border
-client.focused          #E6A0FA #E6A0FA #F8F8F2 #33B5C6	  #E6A0FA
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+# Define colors variables: 
+set $darkbluetrans	#08052be6
+set $darkblue		#08052b
+set $lightblue		#5294e2
+set $urgentred		#e53935
+set $white		#ffffff
+set $black		#000000
+set $purple		#e345ff
+set $darkgrey		#383c4a
+set $grey		#b0b5bd
+set $mediumgrey		#8b8b8b
+set $yellowbrown	#e1b700
+
+# class                   border      bground    text     indicator  child_border
+# client.focused          #E6A0FA     #E6A0FA    #F8F8F2  #33B5C6    #E6A0FA
+# client.focused_inactive #44475A     #44475A    #F8F8F2  #44475A    #44475A
+# client.unfocused        #282A36     #282A36    #BFBFBF  #282A36    #282A36
+# client.urgent           #44475A     #FF5555    #F8F8F2  #FF5555    #FF5555
+# client.placeholder      #282A36     #282A36    #F8F8F2  #282A36    #282A36
+client.focused		  $lightblue  $darkblue  $white   $purple    $mediumgrey
+client.unfocused	  $darkblue   $darkblue	 $grey    $purple    $darkgrey
+client.focused_inactive	  $darkblue   $darkblue	 $grey    $purple    $black
+client.urgent		  $urgentred  $urgentred $white   $purple    $yellowbrown
  
 client.background       #F8F8F2
 
@@ -643,6 +702,17 @@ exec_always --no-startup-id setxkbmap es
 #
 # polkit: start agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#
+# dex execute .desktop files
+# keep in mind that it can cause issues 
+# when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
+# in this cases better disable dex and use manual starting apps using xdg/autostart
+exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+#
+# start a script to setup displays
+# uncomment the next line, use arandr to setup displays and save the file as monitor:
+# exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/ultrawide.sh
 #
 # pulse audio applet: tray icon
 # exec --no-startup-id pa-applet --disable-notifications
@@ -661,12 +731,17 @@ exec --no-startup-id blueman-applet
 #
 # blurlock: screensaver
 exec --no-startup-id xautolock -time 10 -locker blurlock
+#
+#set powersavings for display:
+exec --no-startup-id xset s 480 dpms 600 600 600
+
 
 # |                  Applications                   | #
 # |-------------------------------------------------| #
 #
 # nitrogen: restore last wallpaper
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b -f -c
+# exec --no-startup-id nitrogen --restore; sleep 1; picom -b -f -c
+exec --no-startup-id nitrogen --restore; sleep 1; picom -CGb
 #
 # clipit: clipit tray icon
 # exec --no-startup-id clipit
@@ -729,7 +804,7 @@ exec --no-startup-id nextcloud
 bar {
   output primary
   #i3-bar font configuration
-  font pango:Cantarell, 11
+  font pango:Noto Sans Regular 10, FontAwesome 10
   #i3-bar position <top|bottom>
   position top
   #i3-bar strip workspace numbers <yes|no>
@@ -748,19 +823,21 @@ bar {
   #
   status_command i3status-rs     #i3status-rust
   #status_command i3status       #i3status
+  #status_command i3blocks -c ~/.config/i3/i3blocks.conf
   #system tray
   tray_output primary
   #i3-bar color configuration
   colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
+    separator  $purple
+    background $darkgrey
+    statusline $white
 
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #6272A4 #6272A4 #F8F8F2
+  #                    border       gb            txt         indicator
+    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
+    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
+    inactive_workspace $darkgrey    $darkgrey     $grey       $purple
+    urgent_workspace   $urgentred   $urgentred    $white      $purple
+    #binding_mode       #6272A4 #6272A4 #F8F8F2
   }
 }
 
@@ -768,7 +845,7 @@ bar {
 bar {
   output nonprimary
   #i3-bar font configuration
-  font pango:Cantarell, 9
+  font pango:Noto Sans Regular 10, FontAwesome 10
   #i3-bar position <top|bottom>
   position top
   #i3-bar strip workspace numbers <yes|no>
@@ -788,19 +865,21 @@ bar {
   #|-                                              |
   #
   #status_command i3status-rs   #i3status-rust
-  status_command i3status       #i3status
+  #status_command i3status       #i3status
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
   tray_output primary
   #i3-bar color configuration
   colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
+    separator  $purple
+    background $darkgrey
+    statusline $white
 
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #6272A4 #6272A4 #F8F8F2
+  #                    border       gb            txt         indicator
+    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
+    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
+    inactive_workspace $darkgrey    $darkgrey     $grey       $purple
+    urgent_workspace   $urgentred   $urgentred    $white      $purple
+    #binding_mode       #6272A4 #6272A4 #F8F8F2
   }
 }
 

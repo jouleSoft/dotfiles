@@ -61,6 +61,8 @@ declare -a options=(
 "i3-umenu-term-apps     | $HOME/.config/i3/umenu-term-apps.sh"
 "i3status-rust          | $HOME/.config/i3status-rust/config.toml"
 "i3status               | $HOME/.config/i3status/config"
+"js-dotfiles            | $HOME/.config/js-dotfiles-bkp.conf.sh"
+"js-repos               | $HOME/.config/js-check-repo.conf.sh"
 "kitty                  | $HOME/.config/kitty/kitty.conf"
 "neovim                 | $HOME/.config/nvim/init.vim"
 "picom                  | $HOME/.config/picom.conf"
