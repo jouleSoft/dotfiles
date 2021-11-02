@@ -32,7 +32,7 @@ set $mod Mod4
 set $alt Mod1
 # set terminal
 set $terminal1 "xfce4-terminal"
-set $terminal2 "kitty bash"
+set $terminal2 "kitty"
 # set file manager
 set $fmanager1 thunar
 set $fmanager2 "xfce4-terminal -e ranger"
@@ -136,7 +136,7 @@ bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager2
 # |            Run application launcher             | #
 #
 # dmenu: launcher script for main applications
-bindsym $mod+p exec --no-startup-id "$HOME/.config/i3/dmApplications.sh"
+bindsym $mod+p exec --no-startup-id "$HOME/.config/i3/scripts/dmApplications.sh"
 #
 # preference launcher mode (chord)
 set $mode_preferences |[Open preferences]|> [a]randr || [l]xappearance || [n]itrogen || n[m]-connection-editor || [p]avucontrol
@@ -154,7 +154,7 @@ mode "$mode_preferences" {
 }
 #
 # umenu: launcher script for terminal applications
-bindsym $mod+$alt+p exec --no-startup-id "$HOME/.config/i3/dmScripts.sh"
+bindsym $mod+$alt+p exec --no-startup-id "$HOME/.config/i3/scripts/dmScripts.sh"
 #
 # rofi: run an application
 # bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -lines 12 \
@@ -170,17 +170,17 @@ bindsym $mod+$alt+Ctrl+Shift+p exec --no-startup-id "dmenu_run -i -nf '#F8F8F2' 
 # |Run editor/viewer  launcher for specific pourpose| #
 #
 # dmenu: config file edition dmenu launcher
-bindsym $mod+i exec --no-startup-id "$HOME/.config/i3/dmConfig.sh"
+bindsym $mod+i exec --no-startup-id "$HOME/.config/i3/scripts/dmConfig.sh"
 #
 # dmenu: docs edition/view dmenu launcher
-bindsym $mod+$alt+i exec --no-startup-id "$HOME/.config/i3/dmDocs.sh"
+bindsym $mod+$alt+i exec --no-startup-id "$HOME/.config/i3/scripts/dmDocs.sh"
 
 # |                      O-Key                      | #
 # |-------------------------------------------------| #
 # |  Run web browser launcher for specific pourpose | #
 #
 # dmenu: url dmenu launcher
-bindsym $mod+o exec --no-startup-id "$HOME/.config/i3/dmUrl.sh"
+bindsym $mod+o exec --no-startup-id "$HOME/.config/i3/scripts/dmUrl.sh"
 
 #######################################################
 #         DAEMONS KEYBINDINGS CONFIGURATION           #
