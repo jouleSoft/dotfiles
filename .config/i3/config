@@ -641,7 +641,7 @@ for_window [class="feh" instance="feh"] focus
 for_window [class="Nm-connection-editor" instance="nm-connection-editor"] focus
 for_window [class="Emacs" instance="emacs"] focus
 for_window [class="Remote-viewer" instance="remote-viewer"] focus
-for_window [class="firefox" instance="firefox"] focus
+for_window [class="firefox"] focus
 for_window [class="Pamac-manager"] focus
 
 # set floating (nontiling)for apps needing it
