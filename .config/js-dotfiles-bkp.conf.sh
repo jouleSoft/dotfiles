@@ -56,6 +56,7 @@ declare -a dotConfig_i3wm=(
 ".config/i3/config"
 ".config/i3/i3blocks.conf"
 ".config/i3/keybindings"
+".config/i3/includes/keybindings"
 ".config/i3/scripts/dmApplications.sh"
 ".config/i3/scripts/dmConfig.sh"
 ".config/i3/scripts/dmDocs.sh"
