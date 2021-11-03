@@ -1,9 +1,10 @@
 #                                                                                    
-# TITLE:  i3 config file                                                             
-# AUTHOR: Julio Jiménez Delgado (jouleSoft)                                          
-# REF:    http://i3wm.org/docs/userguide.html                                        
+# i3 config file (v4)
+# Julio Jiménez Delgado (jouleSoft)                                          
 #                                                                                    
-# PATH:   ~/.config/i3/config                                                        
+#
+# ~/.config/i3/config                                                        
+#
 #
 
 #######################
@@ -22,6 +23,11 @@
 # Minus-key(-) = <minus>
 # ------------------------
 
+################
+### INCLUDES ###
+################
+
+include ~/.config/i3/includes/keybindings
 
 ########################
 ### VARIABLE SETTING ###
@@ -95,458 +101,6 @@ workspace $ws7 output $primary
 workspace $ws8 output $nonprimary1
 workspace $ws9 output $primary
 
-#######################################################
-#         PRINCIPAL KEYBINDING CONFIGURATION          #
-#######################################################
-
-# |                   Return-Key                    | #
-# |-------------------------------------------------| #
-# |             Most used applications              | #
-#
-# start a terminal
-bindsym $mod+Return exec --no-startup-id $terminal1
-bindsym $mod+Shift+Return exec --no-startup-id $terminal2
-#
-# start a web browser
-bindsym $mod+$alt+Return exec --no-startup-id "$wbrowser2 duckduckgo.com"
-#
-# firefox chord launcher
-set $mode_firefox |[Firefox]|> [n]ormal [p]rivate
-bindsym $mod+$alt+Shift+Return mode "$mode_firefox"
-
-mode "$mode_firefox" {
-  bindsym n exec --no-startup-id firefox; mode "default"
-  bindsym p exec --no-startup-id firefox --private-window; mode "default"
-
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-  bindsym $mod+$alt+Return "default"
-}
-#
-# start a file manager
-bindsym $mod+$alt+Ctrl+Return exec --no-startup-id $fmanager1
-bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager2
-
-#######################################################
-#        LAUNCHERS KEYBINDINGS CONFIGURATION          #
-#######################################################
-
-# |                     P-Key                       | #
-# |-------------------------------------------------| #
-# |            Run application launcher             | #
-#
-# dmenu: launcher script for main applications
-bindsym $mod+p exec --no-startup-id "$HOME/.config/i3/scripts/dmApplications.sh"
-#
-# preference launcher mode (chord)
-set $mode_preferences |[Open preferences]|> [a]randr || [l]xappearance || [n]itrogen || n[m]-connection-editor || [p]avucontrol
-bindsym $mod+Shift+p mode "$mode_preferences"
-mode "$mode_preferences" {
-	bindsym a exec --no-startup-id arandr; mode "default"
-	bindsym l exec --no-startup-id lxappearance; mode "default"
-	bindsym n exec --no-startup-id nitrogen; mode "default"
-	bindsym m exec --no-startup-id nm-connection-editor; mode "default"
-	bindsym p exec --no-startup-id pavucontrol; mode "default"
-
-	bindsym Escape mode "default"
-	bindsym Return mode "default"
-	bindsym $mod+$alt+o mode "default"
-}
-#
-# umenu: launcher script for terminal applications
-bindsym $mod+$alt+p exec --no-startup-id "$HOME/.config/i3/scripts/dmScripts.sh"
-#
-# rofi: run an application
-# bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -lines 12 \
-#             -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Cantarell 10'
-bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
-#
-# dmenu: launch un run mode
-bindsym $mod+$alt+Ctrl+Shift+p exec --no-startup-id "dmenu_run -i -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p '>'"
-
-# |                      I-Key                      | #
-# |-------------------------------------------------| #
-# |Run editor/viewer  launcher for specific pourpose| #
-#
-# dmenu: config file edition dmenu launcher
-bindsym $mod+i exec --no-startup-id "$HOME/.config/i3/scripts/dmConfig.sh"
-#
-# dmenu: docs edition/view dmenu launcher
-bindsym $mod+$alt+i exec --no-startup-id "$HOME/.config/i3/scripts/dmDocs.sh"
-
-# |                      O-Key                      | #
-# |-------------------------------------------------| #
-# |  Run web browser launcher for specific pourpose | #
-#
-# dmenu: url dmenu launcher
-bindsym $mod+o exec --no-startup-id "$HOME/.config/i3/scripts/dmUrl.sh"
-
-#######################################################
-#         DAEMONS KEYBINDINGS CONFIGURATION           #
-#######################################################
-
-# |                      T-Key                      | #
-# |-------------------------------------------------| #
-# |                 Service killer                  | #
-#
-# start conky i3-legend
-bindsym $mod+t exec --no-startup-id "conky -c $HOME/.config/conky/i3-legend.conf"
-#
-# kill conky i3-legend
-bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux|grep i3-legend.conf|grep -v grep|grep -v emacs|awk '{print $2}'`
-#
-# kill compositor
-bindsym $mod+$alt+t exec --no-startup-id pkill picom
-#
-# start compositor
-bindsym $mod+$alt+Shift+t exec --no-startup-id picom -CGb
-#
-# kill network manager applet (nm-applet)
-# bindsym $mod+$alt+Ctrl+t exec --no-startup-id pkill nm-applet
-#
-# start network manager applet (nm-applet)
-# bindsym $mod+$alt+Ctrl+Shift+t exec --no-startup-id nm-applet
-#
-# --
-# nm-applet: currently not used since i3status-rust NetworkManager
-# block has been taken as primary tool
-# --
-#
-
-# |                      D-Key                      | #
-# |-------------------------------------------------| #
-# |            Notifcation daemon control           | #
-#
-# notification daemon (migrating to mode)
-bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send 'restart dunst'"
-
-#######################################################
-#         I3 CONFIGURATION FILE KEYBINDINGS           #
-#######################################################
-#
-# |                      C-Key                      | #
-# |-------------------------------------------------| #
-# |             i3wm configuration file             | #
-#
-# reload i3 configuration file
-bindsym $mod+c reload
-#
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+c restart
-
-#######################################################
-#    I3 WINDOW BEHAVIOUR KEYBINDING CONFIGURATION     #
-#######################################################
-
-# |                      Q-Key                      | #
-# |-------------------------------------------------| #
-# |              Killing things section             | #
-#
-# kill focused window
-bindsym $mod+q kill
-#
-# shut down, restart and locking features mode (chord)
-bindsym $mod+$alt+Ctrl+q mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-  bindsym l exec --no-startup-id i3exit lock, mode "default"
-  bindsym s exec --no-startup-id i3exit suspend, mode "default"
-  bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-  bindsym e exec --no-startup-id i3exit logout, mode "default"
-  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-  bindsym r exec --no-startup-id i3exit reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-  # exit system mode: "Enter" or "Escape"
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-# |                 [H|J|K|L]-Key                   | #
-# |-------------------------------------------------| #
-# |       Window behavior: focus and movement       | #
-#
-# change window focus left
-bindsym $mod+h focus left
-#
-# change window focus down
-bindsym $mod+j focus down
-#
-# change window focus up
-bindsym $mod+k focus up
-#
-# change window focus right
-bindsym $mod+l focus right
-#
-# move focused window left
-bindsym $mod+Shift+h move left
-#
-# move focused window down
-bindsym $mod+Shift+j move down
-#
-# move focused window up
-bindsym $mod+Shift+k move up
-#
-# move focused window right
-bindsym $mod+Shift+l move right
-#
-# move to the next workspace
-bindsym $mod+Ctrl+l workspace next
-#
-# move to the previous workspace
-bindsym $mod+Ctrl+h workspace prev
-#
-# Shrink focused window width
-bindsym $mod+$alt+Ctrl+h resize shrink width 3 px or 3 ppt
-bindsym $mod+$alt+Ctrl+Shift+h resize shrink width 1 px or 1 ppt
-#
-# Grow focused window height
-bindsym $mod+$alt+Ctrl+j resize grow height 3 px or 3 ppt
-bindsym $mod+$alt+Ctrl+Shift+j resize grow height 1 px or 1 ppt
-#
-# Shrink focused window height
-bindsym $mod+$alt+Ctrl+k resize shrink height 3 px or 3 ppt
-bindsym $mod+$alt+Ctrl+Shift+k resize shrink height 1 px or 1 ppt
-#
-# Grow focused window width
-bindsym $mod+$alt+Ctrl+l resize grow width 3 px or 3 ppt
-bindsym $mod+$alt+Ctrl+Shift+l resize grow width 1 px or 1 ppt
-
-# |                      B-Key                      | #
-# |-------------------------------------------------| #
-# |             Window behavior: border             | #
-#
-# change border to normal
-bindsym $mod+b border normal
-#
-# change border to 2 pixels width
-bindsym $mod+$alt+b border pixel 2
-#
-# no border
-bindsym $mod+$alt+Ctrl+b border none
-
-# |                      V-Key                      | #
-# |-------------------------------------------------| #
-# |       Window behavior: split orientation        | #
-#
-# toggle split orientation
-bindsym $mod+v split toggle
-
-# |                      F-Key                      | #
-# |-------------------------------------------------| #
-# |          Window behavior: full screen           | #
-#
-# toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# |                      E-Key                      | #
-# |-------------------------------------------------| #
-# |            Window behavior: layout              | #
-#
-# change container layout: toggle split
-bindsym $mod+e layout toggle split
-#
-# change container layout: stacked
-bindsym $mod+$alt+e layout stacking
-#
-# change container layout: tabbed
-bindsym $mod+$alt+Ctrl+e layout tabbed
-
-# |                  Space-Key                      | #
-# |-------------------------------------------------| #
-# |     Window behavior: floating/sticky/normal     | #
-#
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-#
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-#
-# toggle sticky
-bindsym $mod+$alt+Shift+space sticky toggle
-
-# |                      R-Key                      | #
-# |-------------------------------------------------| #
-# |            Window behavior: resize              | #
-#
-# Resize window (you can also use the mouse for that)
-#bindsym $mod+r mode "resize"
-#mode "resize" {
-#        bindsym h resize shrink width 3 px or 3 ppt
-#        bindsym j resize grow height 3 px or 3 ppt
-#        bindsym k resize shrink height 3 px or 3 ppt
-#        bindsym l resize grow width 3 px or 3 ppt
-#
-#        # exit resize mode: Enter or Escape
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#        bindsym $mod+r mode "default"
-#}
-
-# |                      G-Key                      | #
-# |-------------------------------------------------| #
-# |              Window behavior: gaps              | #
-#
-# Press $mod+g to enter the gap mode.
-# Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace)
-# or 0 (remove gaps for current workspace).
-# If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-# |                      A-Key                      | #
-# |-------------------------------------------------| #
-# |  Window behavior: focus parent/child container  | #
-#
-# focus the parent container
-bindsym $mod+a focus parent
-#
-# focus the child container
-bindsym $mod+Shift+a focus child
-
-# |                     Tab-Key                     | #
-# |-------------------------------------------------| #
-# |  Workspace behavior: switch next/prev workspace | #
-#
-#navigate workspaces next
-bindsym $mod+Tab workspace next
-#
-#navigate workspaces previous
-bindsym $mod+Shift+Tab workspace prev
-
-# |                  [0-9]-Key                      | #
-# |-------------------------------------------------| #
-# |    Window behavior: switch/move to workspace    | #
-#
-# workspace back and forth (with/without active container)
-bindsym $mod+0 workspace back_and_forth
-bindsym $mod+Shift+0 move container to workspace back_and_forth; workspace back_and_forth
-
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-
-# Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
-bindsym $mod+Ctrl+9 move container to workspace $ws9
-
-# Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-
-#######################################################
-#     AUDIO AND SCREEN KEYBINDING CONFIGURATION       #
-#######################################################
-
-# |                 XF86Launch6-Key                 | #
-# |-------------------------------------------------| #
-# |                 Screen capture                  | #
-#
-# Capture the focused monitor
-bindsym XF86Launch6 exec --no-startup-id i3-scrot
-#
-# Capture the focused window
-bindsym $mod+XF86Launch6 --release exec --no-startup-id i3-scrot -w
-#
-# Capture a selected region
-bindsym $mod+Shift+XF86Launch6 --release exec --no-startup-id i3-scrot -s
-
-# |         XF86MonBrightness[Up|Down]-Key          | #
-# |-------------------------------------------------| #
-# |           Screen brightness control             | #
-#
-# Screen brightness up
-bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 5"
-#
-# Screen brightness down
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5"
-
-# |         XF86Audio[Next|Prev|Play]-Key           | #
-# |-------------------------------------------------| #
-# |             Media player control                | #
-#
-# playerctl: go to the next track
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-#
-# playerctl: go to the previous track
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-#
-# playerctl: launch script for toggling play/pause
-bindsym XF86AudioPlay exec --no-startup-id ~/.config/i3/pctl-playPause.sh
-
-# |   XF86Audio[RaiseVolume|LowerVolume|Mute]-Key   | #
-# |-------------------------------------------------| #
-# |              System audio controls              | #
-# |-                                                | #
-# |INFO:                                            | #
-# |-------------------------------------------------| #
-# |puseaudio applet (pa-applet) captures the        | #
-# |input from theese keys, so it's not needed       | #
-# |-                                                | #
-#
-# pactl: raise volume and send a notification by dunstify
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-#
-# pactl: decrease volume and send a notification by dunstify
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-#
-# pactl: Toggle mute
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 #######################################################
 #        I3 BERHABIOUR AND GAPS CONFIGURATION         #
@@ -677,11 +231,6 @@ set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 
 # class                   border      bground    text     indicator  child_border
-# client.focused          #E6A0FA     #E6A0FA    #F8F8F2  #33B5C6    #E6A0FA
-# client.focused_inactive #44475A     #44475A    #F8F8F2  #44475A    #44475A
-# client.unfocused        #282A36     #282A36    #BFBFBF  #282A36    #282A36
-# client.urgent           #44475A     #FF5555    #F8F8F2  #FF5555    #FF5555
-# client.placeholder      #282A36     #282A36    #F8F8F2  #282A36    #282A36
 client.focused		  $lightblue  $darkblue  $white   $purple    $mediumgrey
 client.unfocused	  $darkblue   $darkblue	 $grey    $purple    $darkgrey
 client.focused_inactive	  $darkblue   $darkblue	 $grey    $purple    $black
@@ -711,20 +260,7 @@ exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 #
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-# exec --no-startup-id ~/.screenlayout/monitor.sh
 exec --no-startup-id ~/.screenlayout/ultrawide.sh
-#
-# pulse audio applet: tray icon
-# exec --no-startup-id pa-applet --disable-notifications
-# --
-# pa-applet: not availiable for arm architecture
-#
-# network manager applet: tray icon
-# --
-# nm-applet: currently not used since i3status-rust NetworkManager
-# block has been taken as primary tool
-# --
-# exec --no-startup-id nm-applet
 #
 # blueman-applet: blueman tray icon
 exec --no-startup-id blueman-applet
@@ -740,37 +276,16 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # |-------------------------------------------------| #
 #
 # nitrogen: restore last wallpaper
-# exec --no-startup-id nitrogen --restore; sleep 1; picom -b -f -c
 exec --no-startup-id nitrogen --restore; sleep 1; picom -CGb
 #
 # clipit: clipit tray icon
-# exec --no-startup-id clipit
-# --
-# clipit: xfce-clipman instead
-#
-# xfce4-clipman: climan tray icon for xfce
-exec --no-startup-id xfce4-clipman
+exec --no-startup-id clipit
 #
 # pamac-tray: pamac tray icon
 exec --no-startup-id pamac-tray
 #
-# udiskie: autostart as tray icon, no automount nor notify
-# exec --no-startup-id udiskie --no-automount --no-notify --tray
-# --
-# udiskie: ommited for now
-#
-# syncthing-gtk: autostart as tray icon, no automount nor notify
-# exec --no-startup-id syncthing-gtk
-# --
-# syncthing-gtk: omited for now
-#
 # mega sync: autostart as tray icon
 exec --no-startup-id megasync
-#
-# dropbox: autostart as tray icon
-# exec --no-startup-id dropbox
-# --
-# dropbox: omited for now
 #
 # remmina: autostart as tray icon
 exec --no-startup-id remmina -i
@@ -882,29 +397,4 @@ bar {
     #binding_mode       #6272A4 #6272A4 #F8F8F2
   }
 }
-
-#######################################################
-#                  OLD AND UNUSED                     #
-#######################################################
-
-# --KEY BINDINGS--
-#
-# Lock screen
-#bindsym $mod+$alt+Ctrl+l exec --no-startup-id blurlock
-#
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-msg exit"
-#
-# Edit file dmenu launcher selector
-# set $mode_editFile |[Edit file]|> [c]onfig [d]oc [s]cript
-# bindsym $mod+i mode "$mode_editFile"
-# mode "$mode_editFile" {
-#	bindsym c exec --no-startup-id "$HOME/.config/i3/dmConfig.sh"; mode "default"
-#	bindsym d exec --no-startup-id "$HOME/.config/i3/dmDocs.sh"; mode "default"
-#	bindsym s exec --no-startup-id "$HOME/.config/i3/dmScripts.sh"; mode "default"
-#
-#	bindsym Escape mode "default"
-#	bindsym Return mode "default"
-#	bindsym $mod+i mode "default"
-#}
 
