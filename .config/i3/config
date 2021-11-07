@@ -28,6 +28,8 @@
 ################
 
 include ~/.config/i3/includes/keybindings
+# include ~/.config/i3/includes/polybar
+include ~/.config/i3/includes/i3bar
 
 ########################
 ### VARIABLE SETTING ###
@@ -36,25 +38,65 @@ include ~/.config/i3/includes/keybindings
 # set mod key
 set $mod Mod4
 set $alt Mod1
+
 # set terminal
 set $terminal1 "xfce4-terminal"
 set $terminal2 "kitty"
+
 # set file manager
 set $fmanager1 thunar
 set $fmanager2 "xfce4-terminal -e ranger"
+
 # set web browser
 set $wbrowser1 firefox
 set $wbrowser2 vimb
+
 # set monitors
 set $primary "eDP"
 set $nonprimary1 "HDMI-A-0"
 
 # Workspace names
+# ---------------
 # to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
+# something like: 
+#
+#   set $ws1 1:mail
+#   set $ws2 2:
+#
+
+# For i3status | i3status-rs
+# --------------------------
+# Terminal and code
+set $ws1 1:
+
+# Operations 1
+set $ws2 2:
+
+# Web browser
+set $ws3 3:
+
+# Multimedia
+set $ws4 4:
+
+# File system
+set $ws5 5:
+
+# Operations 2
+set $ws6 6:
+
+# Virtualization
+set $ws7 7:
+
+# Microsoft VM
+set $ws8 8:
+
+# Preferences
+set $ws9 9:
+
 # For Polybar
 # -----------
+# Polybar manage its own workspace names, so only the workspace number is needed
+
 # set $ws1 1
 # set $ws2 2
 # set $ws3 3
@@ -64,27 +106,6 @@ set $nonprimary1 "HDMI-A-0"
 # set $ws7 7
 # set $ws8 8
 # set $ws9 9
-
-# For i3status-rs
-# ---------------
-# Terminal and code
-set $ws1 1:
-# Operations 1
-set $ws2 2:
-# Web browser
-set $ws3 3:
-# Multimedia
-set $ws4 4:
-# File system
-set $ws5 5:
-# Operations 2
-set $ws6 6:
-# Virtualization
-set $ws7 7:
-# Microsoft VM
-set $ws8 8:
-# Preferences
-set $ws9 9:
 
 
 #######################################################
@@ -106,83 +127,106 @@ workspace $ws9 output $primary
 #        I3 BERHABIOUR AND GAPS CONFIGURATION         #
 #######################################################
 
-# |                 Window  layout                  | #
-# |-------------------------------------------------| #
-#
+# Window  layout
+# --------------
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
-# |                 Window  border                  | #
-# |-------------------------------------------------| #
-#
+# Window  border
+# --------------
+
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border normal
-#
+
 # Hide borders
 hide_edge_borders none
 
-# |           Font and mouse interacting            | #
-# |-------------------------------------------------| #
-#
+# Font and mouse interacting
+# --------------------------
+
 # Font for window titles
 font pango:Noto Sans Regular 10
-#
+
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
-#
+
 # Focus where mouse points
 focus_follows_mouse no
 
-# |                      Gaps                       | #
-# |-------------------------------------------------| #
-#
+# Gaps
+# ----
+
 # Set inner/outer gaps
 gaps inner 8
 gaps outer 0
 # gaps top 9
-#
+
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
 # gaps outer all plus 5
-#
+
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
-#
+
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 hide_edge_borders smart_no_gaps
 
-# |                Rounded corners                  | #
-# |-------------------------------------------------| #
-# | Configure rounded borders: i3-gaps-rounded-git  | #
-#
+# Rounded corners
+# ---------------
+# Configure rounded borders. Only when i3 has been installed by 'i3-gaps-rounded-git' package
+
 # border_radius 10
 
-# |              Workspace assignments              | #
-# |-------------------------------------------------| #
-#
-# Window rules, you can find the window class using xprop
-# for_window [class="^.*"] border pixel 2
-assign [class=kitty] $ws1
+# Workspace assignments
+# ---------------------
+
+# Workspace 1
 assign [class="Emacs" instance="emacs"] $ws1
+
+# Workspace 2
 assign [class=Joplin] $ws2
 assign [class=Google-chrome] $ws2
+assign [class=kitty] $ws2
+
+# Workspace 3
 assign [class=firefox] $ws3
+
+# Workspace 4
 assign [class="vlc" instance="vlc"] $ws4
 assign [class=Spotify] $ws4
+
+# Workspace 5
 assign [class="feh" instance="feh"] $ws5
+
+# Workspace 6
 assign [class=Steam] $ws6
+
+# Workspace 7
 assign [class=Remote-viewer] $ws7
 assign [class=org.remmina.Remmina] $ws7
+
+# Workspace 8
+# NONE
+
+# Workspace 9
 assign [class="Virt-manager" instance="virt-manager"] $ws9
 assign [class="Lxappearance" instance="lxappearance"] $ws9
 assign [class="Nitrogen" instance="nitrogen"] $ws9
 assign [class="Nm-connection-editor" instance="nm-connection-editor"] $ws9
 assign [class=Pavucontrol] $ws9
 assign [class=Pamac-manager] $ws9
+assign [class="Bitwarden" instance="bitwarden"] $ws9
+
+# Window rules
+# ------------
+#
+# You can find the window class using 'xprop WM_CLASS'
+# for_window [class="^.*"] border pixel 2
 
 # set focus to a new instance of these applciations
 for_window [class="Virt-manager" instance="virt-manager"] focus
@@ -196,6 +240,7 @@ for_window [class="Emacs" instance="emacs"] focus
 for_window [class="Remote-viewer" instance="remote-viewer"] focus
 for_window [class="firefox"] focus
 for_window [class="Pamac-manager"] focus
+for_window [class="Bitwarden" instance="bitwarden"] focus
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
@@ -213,9 +258,9 @@ for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enabl
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 
-# |                  Window colors                  | #
-# |-------------------------------------------------| #
-#
+# Window colors
+# -------------
+
 # Define colors variables: 
 set $darkbluetrans	#08052be6
 set $darkblue		#08052b
@@ -242,158 +287,66 @@ client.background       #F8F8F2
 #               AUTOSTART APPLICATIONS                #
 #######################################################
 
-# |       Services and startup configurations       | #
-# |-------------------------------------------------| #
-#
+# Services and startup configurations
+# -----------------------------------
+
 # setxkbmap: set keyboard layout
 exec_always --no-startup-id setxkbmap es
-#
+
 # polkit: start agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#
+
 # dex execute .desktop files
 # keep in mind that it can cause issues 
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
 # in this cases better disable dex and use manual starting apps using xdg/autostart
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-#
+
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
 exec --no-startup-id ~/.screenlayout/ultrawide.sh
-#
+
 # blueman-applet: blueman tray icon
 exec --no-startup-id blueman-applet
-#
+
 # blurlock: screensaver
 exec --no-startup-id xautolock -time 10 -locker blurlock
-#
+
 #set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
 
-# |                  Applications                   | #
-# |-------------------------------------------------| #
-#
+# Applications
+# ------------
+
 # nitrogen: restore last wallpaper
 exec --no-startup-id nitrogen --restore; sleep 1; picom -CGb
-#
+
 # clipit: clipit tray icon
 # exec --no-startup-id clipit
-#
+
 # pamac-tray: pamac tray icon
 exec --no-startup-id pamac-tray
-#
+
 # mega sync: autostart as tray icon
 exec --no-startup-id megasync
-#
+
 # remmina: autostart as tray icon
 exec --no-startup-id remmina -i
-#
+
 # hp-systray: autostart as tray icon
 exec --no-startup-id hp-systray
-#
+
 # joplin: autostart (configured as tray icon startup)
 exec --no-startup-id joplin-desktop
-#
+
 # Conky: autostart
 exec --no-startup-id conky
-#
+
 # slimbook-batery: autostart
 exec --no-startup-id slimbookbattery
-#
+
 # Nextcloud: autostart
 exec --no-startup-id nextcloud
-#
-# polybar: launcher script
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# |-                                                  |
-# |polybar is currently used as alternative bar       |
-# |-                                                  |
 
-#######################################################
-#               I3 BAR CONFIGURATION                  #
-#######################################################
-
-# Laptop monitor bar
-bar {
-  output primary
-  #i3-bar font configuration
-  font pango:Noto Sans Regular 10, FontAwesome 10
-  #i3-bar position <top|bottom>
-  position top
-  #i3-bar strip workspace numbers <yes|no>
-  strip_workspace_numbers yes
-  #|-                                              |
-  #|if yes, workspaces has been declared           |
-  #|as num:str, then only the 'str' value will     |
-  #|be showed                                      |
-  #|-                                              |
-  
-  #i3-bar status command application
-  #|-                                              |
-  #|* i3status by default                          |
-  #|* i3status-rust in use                         |
-  #|-                                              |
-  #
-  status_command i3status-rs     #i3status-rust
-  #status_command i3status       #i3status
-  #status_command i3blocks -c ~/.config/i3/i3blocks.conf
-  #system tray
-  tray_output primary
-  #i3-bar color configuration
-  colors {
-    separator  $purple
-    background $darkgrey
-    statusline $white
-
-  #                    border       gb            txt         indicator
-    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
-    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
-    inactive_workspace $darkgrey    $darkgrey     $grey       $purple
-    urgent_workspace   $urgentred   $urgentred    $white      $purple
-    #binding_mode       #6272A4 #6272A4 #F8F8F2
-  }
-}
-
-# secundary monitor bar
-bar {
-  output nonprimary
-  #i3-bar font configuration
-  font pango:Noto Sans Regular 10, FontAwesome 10
-  #i3-bar position <top|bottom>
-  position top
-  #i3-bar strip workspace numbers <yes|no>
-  strip_workspace_numbers yes
-  #|-                                              |
-  #|if yes, workspaces has been declared           |
-  #|as num:str, then only the 'str' value will     |
-  #|be showed                                      |
-  #|-                                              |
-  #
-  #Show binding mode indicator
-  binding_mode_indicator no
-  #i3-bar status command application
-  #|-                                              |
-  #|* i3status by default                          |
-  #|* i3status-rust in use                         |
-  #|-                                              |
-  #
-  #status_command i3status-rs   #i3status-rust
-  #status_command i3status       #i3status
-  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-  tray_output primary
-  #i3-bar color configuration
-  colors {
-    separator  $purple
-    background $darkgrey
-    statusline $white
-
-  #                    border       gb            txt         indicator
-    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
-    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
-    inactive_workspace $darkgrey    $darkgrey     $grey       $purple
-    urgent_workspace   $urgentred   $urgentred    $white      $purple
-    #binding_mode       #6272A4 #6272A4 #F8F8F2
-  }
-}
 

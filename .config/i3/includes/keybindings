@@ -7,9 +7,10 @@
 # ~/.config/i3/includes/keybindings
 #
 
+#######################
+### KEYBINDING INFO ###
+#######################
 #
-# Key legend
-# ------------------------
 # Return-key   = <Return>
 # Control-key  = <Ctrl>
 # Shift-key    = <Shift>
@@ -18,7 +19,7 @@
 # Space-key    = <space>
 # Plus-key(+)  = <plus>
 # Minus-key(-) = <minus>
-# ------------------------
+#
 
 #######################################################
 #         PRINCIPAL KEYBINDING CONFIGURATION          #
