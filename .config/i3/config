@@ -78,7 +78,7 @@ set $ws4 4:
 # File system
 set $ws5 5:
 # Operations 2
-set $ws6 6:
+set $ws6 6:
 # Virtualization
 set $ws7 7:
 # Microsoft VM
@@ -167,15 +167,14 @@ hide_edge_borders smart_no_gaps
 # Window rules, you can find the window class using xprop
 # for_window [class="^.*"] border pixel 2
 assign [class=kitty] $ws1
-assign [class=Xfce4-terminal] $ws1
-assign [class="Emacs" instance="emacs"] $ws2
+assign [class="Emacs" instance="emacs"] $ws1
 assign [class=Joplin] $ws2
 assign [class=Google-chrome] $ws2
 assign [class=firefox] $ws3
 assign [class="vlc" instance="vlc"] $ws4
 assign [class=Spotify] $ws4
 assign [class="feh" instance="feh"] $ws5
-assign [class=TelegramDesktop] $ws6
+assign [class=Steam] $ws6
 assign [class=Remote-viewer] $ws7
 assign [class=org.remmina.Remmina] $ws7
 assign [class="Virt-manager" instance="virt-manager"] $ws9
@@ -279,7 +278,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id nitrogen --restore; sleep 1; picom -CGb
 #
 # clipit: clipit tray icon
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 #
 # pamac-tray: pamac tray icon
 exec --no-startup-id pamac-tray

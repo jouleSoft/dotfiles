@@ -33,6 +33,7 @@ description="Launch an application from a list"
 declare -a options=(
 "bitwarden            | /usr/bin/bitwarden-desktop"
 "chrome               | /usr/bin/google-chrome-stable"
+"dolphin-emu          | /usr/bin/dolphin-emu"
 "emacs                | /usr/bin/emacs"
 "endeavouros-welcome  | /usr/share/endeavouros/scripts/welcome"
 "firefox              | /usr/bin/firefox"
@@ -45,12 +46,14 @@ declare -a options=(
 "putty                | /usr/bin/putty"
 "remmina              | /usr/bin/remmina"
 "spotify              | /var/lib/snapd/snap/bin/spotify"
+"steam                | /usr/bin/steam"
 "telegram             | /usr/bin/telegram-desktop"
 "teams                | /usr/bin/teams"
 "thunar               | /usr/bin/thunar"
 "transmission         | /usr/bin/transmission-gtk"
 "virt-manager         | /usr/bin/virt-manager"
 "xfce4-terminal       | /usr/bin/xfce4-terminal"
+"yababuse             | /usr/bin/yabause"
 "quit"
 )
 
