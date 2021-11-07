@@ -1,0 +1,101 @@
+#                                                                                    
+# i3 config file (v4)
+#
+# i3status-rs
+# Julio Jiménez Delgado (jouleSoft)                                          
+#                                                                                    
+#
+# ~/.config/i3/includes/i3status-rs
+#
+
+#######################################################
+#               I3 BAR CONFIGURATION                  #
+#######################################################
+
+# Laptop monitor bar
+bar {
+  output primary
+
+  #i3-bar font configuration
+  font pango:Noto Sans Regular 10, FontAwesome 10
+
+  #i3-bar position <top|bottom>
+  position top
+
+  #i3-bar strip workspace numbers <yes|no>
+  #
+  # if yes, workspaces has been declared
+  # as num:str, then only the 'str' value will
+  # be showed                                 
+                                            
+  strip_workspace_numbers yes
+  
+  #Show binding mode indicator <yes|no>
+  binding_mode_indicator yes
+
+  #i3-bar status command application
+  status_command i3status-rs     #i3status-rust
+  #status_command i3status       #i3status
+  #status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+  #system tray
+  tray_output primary
+
+  #i3-bar color configuration
+  colors {
+    separator  $purple
+    background $darkgrey
+    statusline $white
+
+  #                    border       gb            txt         indicator
+    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
+    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
+    inactive_workspace $darkgrey    $darkgrey     $grey       $purple
+    urgent_workspace   $urgentred   $urgentred    $white      $purple
+    #binding_mode       #6272A4 #6272A4 #F8F8F2
+  }
+}
+
+# secundary monitor bar
+bar {
+  output nonprimary
+
+  #i3-bar font configuration
+  font pango:Noto Sans Regular 10, FontAwesome 10
+
+  #i3-bar position <top|bottom>
+  position top
+
+  #i3-bar strip workspace numbers <yes|no>
+  #
+  # if yes, workspaces has been declared
+  # as num:str, then only the 'str' value will
+  # be showed                                 
+                                            
+  strip_workspace_numbers yes
+  
+  #Show binding mode indicator <yes|no>
+  binding_mode_indicator no
+
+  #i3-bar status command application
+  #status_command i3status-rs   #i3status-rust
+  #status_command i3status       #i3status
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+  #system tray
+  tray_output primary
+
+  #i3-bar color configuration
+  colors {
+    separator  $purple
+    background $darkgrey
+    statusline $white
+
+  #                    border       gb            txt         indicator
+    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
+    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
+    inactive_workspace $darkgrey    $darkgrey     $grey       $purple
+    urgent_workspace   $urgentred   $urgentred    $white      $purple
+    #binding_mode       #6272A4 #6272A4 #F8F8F2
+  }
+}
