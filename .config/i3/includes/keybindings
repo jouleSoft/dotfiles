@@ -53,7 +53,7 @@ bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager2
 #######################################################
 #        LAUNCHERS KEYBINDINGS CONFIGURATION          #
 #        -----------------------------------          #
-#                      P, O, I, U                     #
+#                   D, P, O, I, U                     #
 #######################################################
 
 # dmenu: launcher script for main applications
@@ -81,11 +81,11 @@ bindsym $mod+u exec --no-startup-id "$HOME/.config/i3/scripts/dmScripts.sh"
 #bindsym $mod+$alt+p exec --no-startup-id "$HOME/.config/i3/scripts/umenu-term-apps.sh
 
 # rofi: run an application
-bindsym $mod+$alt+Ctrl+p exec --no-startup-id rofi -modi drun -show drun \
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 #
-# dmenu: launch un run mode
-bindsym $mod+$alt+Ctrl+Shift+p exec --no-startup-id "dmenu_run -i -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p '>'"
+# dmenu: launch dmenu run mode
+bindsym $mod+$alt+d exec --no-startup-id "dmenu_run -i -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p '>'"
 
 # 
 # |Run editor/viewer  launcher for specific pourpose| #
@@ -112,7 +112,7 @@ bindsym $mod+o exec --no-startup-id "$HOME/.config/i3/scripts/dmUrl.sh"
 bindsym $mod+t exec --no-startup-id "conky -c $HOME/.config/conky/i3-legend.conf"
 
 # kill conky i3-legend
-bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux|grep i3-legend.conf|grep -v grep|grep -v emacs|awk '{print $2}'`
+bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux|grep i3-legend |grep -v grep|grep -v emacs|awk '{print $2}'`
 
 # kill compositor
 bindsym $mod+$alt+t exec --no-startup-id pkill picom
