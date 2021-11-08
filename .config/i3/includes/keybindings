@@ -75,7 +75,7 @@ mode "$mode_preferences" {
 	bindsym $mod+$alt+o mode "default"
 }
 
-# dmenu: script launcher
+# dmenu: script and terminal applications launcher
 bindsym $mod+u exec --no-startup-id "$HOME/.config/i3/scripts/dmScripts.sh"
 
 # umenu: launcher script for terminal applications

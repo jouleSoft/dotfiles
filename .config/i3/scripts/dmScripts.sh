@@ -37,9 +37,8 @@ DMEDITOR="emacsclient -a emacs"
 # An array of optiones to choose.
 # You can edit this list to add/remove config files.
 declare -a options=(
-"js.bkp.sh              | $HOME/scripts/js.bkp.sh"
-"js.download.links.sh   | $HOME/scripts/js.download.links.sh"
-"js.simplebkp.sh        | $HOME/scripts/js.simplebkp.sh"
+"js-dotfiles-bkp.sh     | $HOME/workspace/bash-scripts/js-dotfiles-bkp.sh"
+"js-repo-check.sh     | $HOME/workspace/bash-scripts/js-repo-check.sh"
 "quit"
 )
 
@@ -69,12 +68,12 @@ main()
 
 	# What to do when/if we choose 'quit'.
 	if [ "$choice" == "quit" ]; then
-		echo "Program terminated." && exit 1
+		echo "Program terminated." && exit 0
 
 		# What to do when/if we choose a file to edit.
 	elif [ "$choice" ]; then
 		cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
-		$DMEDITOR "$cfg"
+		kitty "$cfg"; sleep 5
 
 		# What to do if we just escape without choosing anything.
 	else
