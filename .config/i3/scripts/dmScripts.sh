@@ -38,7 +38,7 @@ DMEDITOR="emacsclient -a emacs"
 # You can edit this list to add/remove config files.
 declare -a options=(
 "js-dotfiles-bkp.sh     | $HOME/workspace/bash-scripts/js-dotfiles-bkp.sh"
-"js-repo-check.sh     | $HOME/workspace/bash-scripts/js-repo-check.sh"
+"js-repo-check.sh       | $HOME/workspace/bash-scripts/js-repo-check.sh"
 "quit"
 )
 
@@ -73,7 +73,7 @@ main()
 		# What to do when/if we choose a file to edit.
 	elif [ "$choice" ]; then
 		cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
-		kitty "$cfg"; sleep 5
+		kitty "$cfg"
 
 		# What to do if we just escape without choosing anything.
 	else
