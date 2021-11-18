@@ -344,7 +344,7 @@ exec --no-startup-id joplin-desktop
 exec --no-startup-id conky
 
 # slimbook-batery: autostart
-exec --no-startup-id slimbookbattery
+# exec --no-startup-id slimbookbattery
 
 # Nextcloud: autostart
 exec --no-startup-id nextcloud

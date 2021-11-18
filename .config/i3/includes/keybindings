@@ -122,7 +122,7 @@ bindsym $mod+$alt+t exec --no-startup-id pkill picom
 bindsym $mod+$alt+Shift+t exec --no-startup-id picom -CGb
 
 # restart conky
-bindsym $mod+$alt+Ctrl+t exec --no-startup-id "killall conky; conky"
+bindsym $mod+$alt+Ctrl+t exec --no-startup-id "killall conky; conky; sleep1; nitrogen --restore"
 
 #######################################################
 #         I3 CONFIGURATION FILE KEYBINDINGS           #
