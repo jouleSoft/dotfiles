@@ -5,7 +5,7 @@
 " -.- ~/.vim/vimrc -.-
 "
 " PREREQUISITES
-" --
+" -------------
 " For nvim:
 "   Create ~/.config/nvim/init.vim
 "
@@ -132,6 +132,9 @@ Plug 'raimondi/delimitmate'
 "  One of the following:
 "  - [AUR] nerd-fonts-hack
 "  - [Community] ttf-nerd-fonts-symbols-mono
+"  Ubuntu:
+"  - fonts-powerline
+"  - DejaVuSansMono Nerd Font Mono
 "
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -169,7 +172,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " --Syntastic configuration--
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 "--Deoplete configuration--
 let g:deoplete#enable_at_startup = 1
