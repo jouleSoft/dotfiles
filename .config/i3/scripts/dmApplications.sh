@@ -33,7 +33,6 @@ description="Launch an application from a list"
 declare -a options=(
 "bitwarden            | /usr/bin/bitwarden-desktop"
 "chrome               | /usr/bin/google-chrome-stable"
-"dolphin-emu          | /usr/bin/dolphin-emu"
 "emacs                | /usr/bin/emacs"
 "endeavouros-welcome  | /usr/share/endeavouros/scripts/welcome"
 "firefox              | /usr/bin/firefox"
@@ -53,7 +52,6 @@ declare -a options=(
 "transmission         | /usr/bin/transmission-gtk"
 "virt-manager         | /usr/bin/virt-manager"
 "xfce4-terminal       | /usr/bin/xfce4-terminal"
-"yababuse             | /usr/bin/yabause"
 "quit"
 )
 

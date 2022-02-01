@@ -49,7 +49,7 @@ set $fmanager2 "xfce4-terminal -e ranger"
 
 # set web browser
 set $wbrowser1 firefox
-set $wbrowser2 vimb
+set $wbrowser2 google-chrome-stable
 
 # set monitors
 set $primary "eDP"
