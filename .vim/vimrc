@@ -143,7 +143,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " --Dracula color scheme--
-" colorscheme dracula
+colorscheme dracula
 
 " --NERDTree commands--
 let NERDTreeQuitOnOpen=1

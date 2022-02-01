@@ -187,6 +187,7 @@ hide_edge_borders smart_no_gaps
 
 # Workspace 1
 assign [class="Emacs" instance="emacs"] $ws1
+assign [class="Xfce4-terminal" instance="xfce4-terminal"] $ws1
 
 # Workspace 2
 assign [class=Joplin] $ws2
@@ -229,6 +230,7 @@ assign [class="Bitwarden" instance="bitwarden"] $ws9
 # for_window [class="^.*"] border pixel 2
 
 # set focus to a new instance of these applciations
+for_window [class="Xfce4-terminal" instance="xfce4-terminal"] focus
 for_window [class="Virt-manager" instance="virt-manager"] focus
 for_window [class="Lxappearance" instance="lxappearance"] focus
 for_window [class="Nitrogen" instance="nitrogen"] focus
@@ -304,7 +306,7 @@ exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/ultrawide.sh
+exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # blueman-applet: blueman tray icon
 exec --no-startup-id blueman-applet

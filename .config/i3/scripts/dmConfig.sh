@@ -33,7 +33,7 @@ declare DMEDITOR
 
 #Global operational variables
 # Defining the text editor to use.
-# DMEDITOR="xfce4-terminal -e /usr/bin/vim"
+# DMEDITOR="xfce4-terminal -e /usr/bin/nvim"
 DMEDITOR="kitty /usr/bin/nvim"
 # DMEDITOR="emacsclient -c -a emacs"
 # DMEDITOR="emacsclient -a emacs"
@@ -48,7 +48,7 @@ declare -a options=(
 "doom emacs config.el   | $HOME/.doom.d/config.el"
 "doom emacs init.el     | $HOME/.doom.d/init.el"
 "doom emacs packages.el | $HOME/.doom.d/packages.el"
-"dunst                  | $HOME/.config/dunstrc"
+"dunst                  | $HOME/.config/dunst/dunstrc"
 "fish                   | $HOME/.config/fish/config.fish"
 "i3                     | $HOME/.config/i3/config"
 "i3-keybindings         | $HOME/.config/i3/includes/keybindings"
