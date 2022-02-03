@@ -47,7 +47,6 @@ declare -a options=(
 "spotify              | /var/lib/snapd/snap/bin/spotify"
 "steam                | /usr/bin/steam"
 "telegram             | /usr/bin/telegram-desktop"
-"teams                | /usr/bin/teams"
 "thunar               | /usr/bin/thunar"
 "transmission         | /usr/bin/transmission-gtk"
 "virt-manager         | /usr/bin/virt-manager"
