@@ -248,6 +248,9 @@ for_window [class="Pamac-manager"] focus
 for_window [class="Bitwarden" instance="bitwarden"] focus
 for_window [class="draw.io" instance="draw.io"] focus
 for_window [class="Thunar" instance="thunar"] focus
+for_window [class=Joplin] focus
+for_window [class=Google-chrome] focus
+for_window [class=kitty] focus
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
