@@ -49,7 +49,7 @@ set $fmanager2 "xfce4-terminal -e ranger"
 
 # set web browser
 set $wbrowser1 firefox
-set $wbrowser2 google-chrome-stable
+set $wbrowser2 vimb
 
 # set monitors
 set $primary "eDP"
@@ -116,7 +116,7 @@ workspace $ws1 output $primary
 workspace $ws2 output $nonprimary1
 workspace $ws3 output $nonprimary1
 workspace $ws4 output $nonprimary1
-workspace $ws5 output $primary
+workspace $ws5 output $nonprimary1
 workspace $ws6 output $primary
 workspace $ws7 output $primary
 workspace $ws8 output $nonprimary1
@@ -203,6 +203,8 @@ assign [class=Spotify] $ws4
 
 # Workspace 5
 assign [class="feh" instance="feh"] $ws5
+assign [class="draw.io" instance="draw.io"] $ws5
+assign [class="libreoffice-calc" instance="libreoffice"] $ws5
 
 # Workspace 6
 assign [class=Steam] $ws6
@@ -222,6 +224,7 @@ assign [class="Nm-connection-editor" instance="nm-connection-editor"] $ws9
 assign [class=Pavucontrol] $ws9
 assign [class=Pamac-manager] $ws9
 assign [class="Bitwarden" instance="bitwarden"] $ws9
+assign [class="Thunar" instance="thunar"] $ws9
 
 # Window rules
 # ------------
@@ -243,6 +246,8 @@ for_window [class="Remote-viewer" instance="remote-viewer"] focus
 for_window [class="firefox"] focus
 for_window [class="Pamac-manager"] focus
 for_window [class="Bitwarden" instance="bitwarden"] focus
+for_window [class="draw.io" instance="draw.io"] focus
+for_window [class="Thunar" instance="thunar"] focus
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
