@@ -15,9 +15,6 @@ declare -a dotConfig=(
 ".config/alacritty/alacritty.yml"
 ".config/alacritty/dracula.yml"
 ".config/alacritty/template.yml"
-".config/conky/conky-plasma.sh"
-".config/conky/conky.conf"
-".config/conky/i3-legend.conf"
 ".config/dunst/dunstrc"
 ".config/fish/conf.d/dracula.fish"
 ".config/fish/config.fish"
@@ -49,6 +46,14 @@ declare -a dotConfig=(
 ".config/rofi/powermenu.rasi"
 ".config/rofi/rofidmenu.rasi"
 ".config/starship.toml"
+)
+
+#dotfiles from '~/.config/conky' directory
+declare -a dotConfig_conky=(
+".config/conky/conky.conf"
+".config/conky/i3-legend.conf"
+".config/conky/scripts/check-connection.sh"
+".config/conky/scripts/conky-plasma.sh"
 )
 
 #dotfiles from '~/.config/i3' directory

@@ -78,7 +78,7 @@ bar {
   binding_mode_indicator no
 
   #i3-bar status command application
-  status_command i3status-rs   #i3status-rust
+  status_command i3status-rs ~/.config/i3status-rust/config2.toml   #i3status-rust
   #status_command i3status       #i3status
   #status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
