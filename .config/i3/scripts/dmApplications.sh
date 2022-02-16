@@ -42,6 +42,7 @@ declare -a options=(
 "kitty                | /usr/bin/kitty"
 "jupyter-lab          | /usr/bin/jupyter-lab"
 "libreOffice          | /usr/bin/libreoffice"
+"logseq               | /usr/bin/logseq"
 "mysql-workbench      | /usr/bin/mysql-workbench"
 "spotify              | /var/lib/snapd/snap/bin/spotify"
 "steam                | /usr/bin/steam"

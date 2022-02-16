@@ -47,6 +47,8 @@ alias ll='ls -lhHag --octal-permissions --git'      # List layout, human readabl
 alias ls='exa'                                      # Use 'exa' instead 'ls'
 alias mv='mv -vi'                                   # Verbose and interactive if overwrite
 alias rm='rm -v'                                    # Verbose
+alias vi='nvim'                                     # Open newvim
+alias vim='nvim'                                    # Open newvim
 
 # Recalbox http/ssh aliases
 alias rbox='/usr/bin/firefox http://recalbox'

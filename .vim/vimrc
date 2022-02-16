@@ -75,9 +75,9 @@ nmap <leader>bi :buffers<CR>
 nmap <leader>bb :buffer 
 " ----------------------------------
 " Open NERDTree
-nmap <leader>n :NERDTreeFind<CR>
+nmap <leader>o :NERDTreeFind<CR>
 " Easymotion
-nmap <leader>s <Plug>(easymotion-s2)
+nmap <leader>S <Plug>(easymotion-s2)
 " ----------------------------------
 " Markdown-preview
 nmap <leader>mp :call Vim_Markdown_Preview()<CR>
@@ -119,6 +119,8 @@ Plug 'godlygeek/tabular', {'for': 'markdown'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 " --PowerShell
 Plug 'pprovost/vim-ps1', {'for': 'ps1'}
+" --Python
+Plug 'davidhalter/jedi-vim'
 " --Tools--
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic', { 'as': 'syntastic' }

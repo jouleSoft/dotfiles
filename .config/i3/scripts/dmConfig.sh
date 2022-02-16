@@ -74,6 +74,7 @@ declare -a options=(
 "qtile                  | $HOME/.config/qtile/config.py"
 "qtile-autostart        | $HOME/.config/qtile/autostart.sh"
 "ranger                 | $HOME/.config/ranger/rc.conf"
+"starship               | $HOME/.config/starship.toml"
 "vim                    | $HOME/.vim/vimrc"
 "quit"
 )
