@@ -188,9 +188,9 @@ hide_edge_borders smart_no_gaps
 # Workspace 1
 assign [class="Emacs" instance="emacs"] $ws1
 assign [class="Xfce4-terminal" instance="xfce4-terminal"] $ws1
+assign [class="Joplin"] $ws1
 
 # Workspace 2
-assign [class=Joplin] $ws2
 assign [class=Google-chrome] $ws2
 assign [class=kitty] $ws2
 
