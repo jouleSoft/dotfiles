@@ -18,7 +18,7 @@ show_always = false
 disabled = false
 
 [line_break]
-disabled = true
+disabled = false
 
 [python]
 # font: awesome5
