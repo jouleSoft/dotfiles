@@ -28,8 +28,8 @@
 #######################################################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id $terminal1
-bindsym $mod+Shift+Return exec --no-startup-id $terminal2
+bindsym $mod+Return exec --no-startup-id $terminal2
+bindsym $mod+Shift+Return exec --no-startup-id $terminal1
 
 # start a web browser
 bindsym $mod+$alt+Return exec --no-startup-id "$wbrowser2 duckduckgo.com"
