@@ -48,11 +48,11 @@ bar {
     statusline $white
 
   #                    border       gb            txt         indicator
-    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
-    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
+    focused_workspace  $purple      $grey         $darkgrey   $purple
+    active_workspace   $darkgrey    $mediumgrey   $darkgrey   $purple
     inactive_workspace $darkgrey    $darkgrey     $grey       $purple
     urgent_workspace   $urgentred   $urgentred    $white      $purple
-    #binding_mode       #6272A4 #6272A4 #F8F8F2
+    binding_mode       $darkgrey    #6272A4       #F8F8F2
   }
 }
 
@@ -92,10 +92,10 @@ bar {
     statusline $white
 
   #                    border       gb            txt         indicator
-    focused_workspace  $mediumgrey  $grey         $darkgrey   $purple
-    active_workspace   $lightblue   $mediumgrey   $darkgrey   $purple
+    focused_workspace  $purple      $grey         $darkgrey   $purple
+    active_workspace   $darkgrey    $mediumgrey   $darkgrey   $purple
     inactive_workspace $darkgrey    $darkgrey     $grey       $purple
     urgent_workspace   $urgentred   $urgentred    $white      $purple
-    #binding_mode       #6272A4 #6272A4 #F8F8F2
+    #binding_mode      #6272A4      #6272A4       #F8F8F2
   }
 }
