@@ -5,7 +5,7 @@
 # Julio Jiménez Delgado (jouleSoft)                                          
 #                                                                                    
 #
-# ~/.config/i3/includes/i3status-rs
+# ~/.config/i3/includes/i3bar
 #
 
 #######################################################
@@ -17,7 +17,7 @@ bar {
   output primary
 
   #i3-bar font configuration
-  font pango:Noto Sans Regular 10, FontAwesome 10
+  font pango:Noto Sans Regular 11, FontAwesome 11
 
   #i3-bar position <top|bottom>
   position top
@@ -78,7 +78,7 @@ bar {
   binding_mode_indicator no
 
   #i3-bar status command application
-  status_command i3status-rs ~/.config/i3status-rust/config2.toml   #i3status-rust
+  status_command i3status-rs ~/.config/i3status-rust/config.toml   #i3status-rust
   #status_command i3status       #i3status
   #status_command i3blocks -c ~/.config/i3/i3blocks.conf
 

@@ -48,8 +48,8 @@ mode "$mode_firefox" {
 }
 
 # start a file manager
-bindsym $mod+$alt+Ctrl+Return exec --no-startup-id $fmanager1
-bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager2
+bindsym $mod+$alt+Ctrl+Return exec --no-startup-id $fmanager2
+bindsym $mod+$alt+Ctrl+Shift+Return exec --no-startup-id $fmanager1
 
 #######################################################
 #        LAUNCHERS KEYBINDINGS CONFIGURATION          #

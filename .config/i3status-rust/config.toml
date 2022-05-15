@@ -124,7 +124,7 @@ format_singular = "{pacman}"
 format_up_to_date = "{pacman}"
 critical_updates_regex = "(linux |linux-lts|linux-zen)"
 # aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
-aur_command = "checkupdates"
+aur_command = "checkupdates+aur"
 
 [[block]]
 block = "sound"

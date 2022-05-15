@@ -33,6 +33,10 @@ set --export js_sh "$HOME/workspace/bash-scripts"
 # dotfiles
 set --export jsdotfiles "$HOME/workspace/dotfiles"
 
+# Editor
+set --export EDITOR "/usr/bin/nvim"
+set --export VISUAL "/usr/bin/nvim"
+
 ###############
 ### ALIASES ###
 ###############
@@ -47,8 +51,9 @@ alias ll='ls -lhHag --octal-permissions --git'      # List layout, human readabl
 alias ls='exa'                                      # Use 'exa' instead 'ls'
 alias mv='mv -vi'                                   # Verbose and interactive if overwrite
 alias rm='rm -v'                                    # Verbose
-alias vi='nvim'                                     # Open newvim
-alias vim='nvim'                                    # Open newvim
+alias vi='nvim'                                     # Open neovim
+alias vim='nvim'                                    # Open neovim
+alias rr='ranger'                                   # Open ranger
 
 # Recalbox http/ssh aliases
 alias rbox='/usr/bin/firefox http://recalbox'
