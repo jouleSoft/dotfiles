@@ -73,15 +73,15 @@ set $ws1 1:
 set $ws2 2:
 
 # Web browser
-set $ws3 3:
+set $ws3 3:
 
 # Multimedia
-set $ws4 4:
+set $ws4 4:
 
 # File system
 set $ws5 5:
 
-# Operations 2
+# Multimedia and Gaming
 set $ws6 6:
 
 # Virtualization
@@ -115,7 +115,7 @@ set $ws9 9:
 workspace $ws1 output $primary
 workspace $ws2 output $nonprimary1
 workspace $ws3 output $nonprimary1
-workspace $ws4 output $nonprimary1
+workspace $ws4 output $primary
 workspace $ws5 output $nonprimary1
 workspace $ws6 output $primary
 workspace $ws7 output $primary
@@ -152,6 +152,10 @@ font pango:Noto Sans Regular 10
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
+# Floating windows dimensions
+floating_minimum_size 800 x 600
+floating_maximum_size -1 x -1
+
 # Focus where mouse points
 focus_follows_mouse no
 
@@ -187,19 +191,18 @@ hide_edge_borders smart_no_gaps
 
 # Workspace 1
 assign [class="Emacs" instance="emacs"] $ws1
-assign [class="Xfce4-terminal" instance="xfce4-terminal"] $ws1
+#assign [class="Xfce4-terminal" instance="xfce4-terminal"] $ws1
 assign [class="Joplin"] $ws1
 
 # Workspace 2
 assign [class=Google-chrome] $ws2
-assign [class=kitty] $ws2
+#assign [class=kitty] $ws2
 
 # Workspace 3
 assign [class=firefox] $ws3
 
 # Workspace 4
-assign [class="vlc" instance="vlc"] $ws4
-assign [class=Spotify] $ws4
+assign [class="Microsoft Teams - Preview"] $ws4
 
 # Workspace 5
 assign [class="feh" instance="feh"] $ws5
@@ -208,6 +211,8 @@ assign [class="libreoffice-calc" instance="libreoffice"] $ws5
 
 # Workspace 6
 assign [class=Steam] $ws6
+assign [class="vlc" instance="vlc"] $ws6
+for_window [class=Spotify] move to workspace $ws6
 
 # Workspace 7
 assign [class=Remote-viewer] $ws7
@@ -225,6 +230,8 @@ assign [class=Pavucontrol] $ws9
 assign [class=Pamac-manager] $ws9
 assign [class="Bitwarden" instance="bitwarden"] $ws9
 assign [class="Thunar" instance="thunar"] $ws9
+assign [class="org.gnome.DejaDup"] $ws9
+assign [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] $ws9
 
 # Window rules
 # ------------
@@ -251,6 +258,7 @@ for_window [class="Thunar" instance="thunar"] focus
 for_window [class=Joplin] focus
 for_window [class=Google-chrome] focus
 for_window [class=kitty] focus
+for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] focus
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
@@ -258,15 +266,31 @@ for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="MEGAsync" instance="megasync"] floating enable
 for_window [class="Lxappearance" instance="lxappearance"] floating enable
-for_window [class="Nitrogen" instance="nitrogen"] floating enable
 
 #set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
+
+#set tabbing for apps
+for_window [class="Nitrogen" instance="nitrogen"] layout tabbed
+for_window [class="Bitwarden" instance="bitwarden"] layout tabbed
+for_window [class="Virt-manager" instance="virt-manager"] layout tabbed
+for_window [class="Lxappearance" instance="lxappearance"] layout tabbed
+for_window [class="Nitrogen" instance="nitrogen"] layout tabbed
+for_window [class="Nm-connection-editor" instance="nm-connection-editor"] layout tabbed
+for_window [class=Pavucontrol] layout tabbed
+for_window [class=Pamac-manager] layout tabbed
+for_window [class="Bitwarden" instance="bitwarden"] layout tabbed
+for_window [class="Thunar" instance="thunar"] layout tabbed
+for_window [class="org.gnome.DejaDup"] layout tabbed
+for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] layout tabbed
+for_window [class=Steam] layout tabbed
+for_window [class="vlc" instance="vlc"] layout tabbed
+for_window [class=Spotify] layout tabbed
+for_window [class="Microsoft Teams - Preview"] layout tabbed
 
 # Window colors
 # -------------
@@ -325,6 +349,8 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 #set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
+#udiskie for monting
+exec --no-startup-id udiskie -sAn -f thunar
 
 # Applications
 # ------------

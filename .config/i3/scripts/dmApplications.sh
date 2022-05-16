@@ -46,6 +46,7 @@ declare -a options=(
 "mysql-workbench      | /usr/bin/mysql-workbench"
 "spotify              | /var/lib/snapd/snap/bin/spotify"
 "steam                | /usr/bin/steam"
+"teams                | /var/lib/snapd/snap/bin/teams"
 "telegram             | /usr/bin/telegram-desktop"
 "thunar               | /usr/bin/thunar"
 "transmission         | /usr/bin/transmission-gtk"

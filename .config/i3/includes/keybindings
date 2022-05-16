@@ -113,16 +113,23 @@ bindsym $mod+o exec --no-startup-id "$HOME/.config/i3/scripts/dmUrl.sh"
 bindsym $mod+t exec --no-startup-id "conky -c $HOME/.config/conky/i3-legend.conf"
 
 # kill conky i3-legend
-bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux|grep i3-legend |grep -v grep|grep -v emacs|awk '{print $2}'`
+bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux | grep i3-legend | grep -v -e "grep" -e "emacs" | awk '{print $2}'`
 
 # kill compositor
 bindsym $mod+$alt+t exec --no-startup-id pkill picom
 
 # start compositor
-bindsym $mod+$alt+Shift+t exec --no-startup-id picom -CGb
+#bindsym $mod+$alt+Shift+t exec --no-startup-id picom -CGb
+bindsym $mod+$alt+Shift+t exec --no-startup-id "pkill picom; sleep 1; picom -CGb"
 
 # restart conky
 bindsym $mod+$alt+Ctrl+t exec --no-startup-id "killall conky; conky; sleep1; nitrogen --restore"
+
+# dunstify show history
+bindsym $mod+n exec --no-startup-id dunstctl history-pop
+
+# dunstify clear all
+bindsym $mod+m exec --no-startup-id dunstctl close-all
 
 #######################################################
 #         I3 CONFIGURATION FILE KEYBINDINGS           #
@@ -243,12 +250,9 @@ bindsym $mod+f fullscreen toggle
 # change container layout: toggle split
 bindsym $mod+e layout toggle split
 #
-# change container layout: stacked
-bindsym $mod+$alt+e layout stacking
+# change container layout: toggle stacking | tabbed
+bindsym $mod+w layout toggle stacking tabbed
 #
-# change container layout: tabbed
-bindsym $mod+$alt+Ctrl+e layout tabbed
-
 # 
 # |     Window behavior: floating/sticky/normal     | #
 #

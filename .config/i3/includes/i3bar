@@ -34,7 +34,7 @@ bar {
   binding_mode_indicator yes
 
   #i3-bar status command application
-  status_command i3status-rs     #i3status-rust
+  status_command i3status-rs ~/.config/i3status-rust/config_primary.toml    #i3status-rust
   #status_command i3status       #i3status
   #status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
@@ -78,7 +78,7 @@ bar {
   binding_mode_indicator no
 
   #i3-bar status command application
-  status_command i3status-rs ~/.config/i3status-rust/config.toml   #i3status-rust
+  status_command i3status-rs ~/.config/i3status-rust/config_nonprimary.toml   #i3status-rust
   #status_command i3status       #i3status
   #status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
