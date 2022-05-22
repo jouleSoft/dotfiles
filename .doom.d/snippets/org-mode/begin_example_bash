@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: #+Begin_example bash
+# key: example_bash
+# uuid: example_bash
+# --
+#+begin_example bash
+`%`$0
+#+end_example

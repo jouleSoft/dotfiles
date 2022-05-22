@@ -61,6 +61,7 @@ declare -a options=(
 "vim-plug         | https://github.com/junegunn/vim-plug"
 "wordreference    | https://www.wordreference.com/"
 "xrandr-config    | https://blog.stigok.com/2017/08/14/multimonitor-setup-with-i3-and-xrandr-on-arch-linux.html"
+"yad              | https://www.systutorials.com/docs/linux/man/1-yad/#lbAX"
 "quit"
 )
 

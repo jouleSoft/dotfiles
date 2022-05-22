@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: paru -Sy --needed
+# key: paru_sy_needed
+# uuid: paru_sy_needed
+# --
+paru -Sy --needed $0

@@ -1,0 +1,388 @@
+#                                                                                    
+# i3 config file (v4)
+# Julio Jiménez Delgado (jouleSoft)                                          
+#                                                                                    
+#
+# ~/.config/i3/config                                                        
+#
+#
+
+#######################
+### KEYBINDING INFO ###
+#######################
+
+# Key legend
+# ------------------------
+# Return-key   = <Return>
+# Control-key  = <Ctrl>
+# Shift-key    = <Shift>
+# Alt-key      = <Mod1>
+# Super-key    = <Mod4>
+# Space-key    = <space>
+# Plus-key(+)  = <plus>
+# Minus-key(-) = <minus>
+# ------------------------
+
+################
+### INCLUDES ###
+################
+
+include ~/.config/i3/includes/keybindings
+# include ~/.config/i3/includes/polybar
+include ~/.config/i3/includes/i3bar
+
+########################
+### VARIABLE SETTING ###
+########################
+
+# set mod key
+set $mod Mod4
+set $alt Mod1
+
+# set terminal
+set $terminal1 "xfce4-terminal"
+set $terminal2 "kitty"
+
+# set file manager
+set $fmanager1 thunar
+set $fmanager2 "xfce4-terminal -e ranger"
+
+# set web browser
+set $wbrowser1 firefox
+set $wbrowser2 vimb
+
+# set monitors
+set $primary "eDP"
+set $nonprimary1 "HDMI-A-0"
+
+# Workspace names
+# ---------------
+# to display names or symbols instead of plain workspace numbers you can use
+# something like: 
+#
+#   set $ws1 1:mail
+#   set $ws2 2:
+#
+
+# For i3status | i3status-rs
+# --------------------------
+# Terminal and code
+set $ws1 1:
+
+# Operations 1
+set $ws2 2:
+
+# Web browser
+set $ws3 3:
+
+# Multimedia
+set $ws4 4:
+
+# File system
+set $ws5 5:
+
+# Multimedia and Gaming
+set $ws6 6:
+
+# Virtualization
+set $ws7 7:
+
+# Microsoft VM
+set $ws8 8:
+
+# Preferences
+set $ws9 9:
+
+# For Polybar
+# -----------
+# Polybar manage its own workspace names, so only the workspace number is needed
+
+# set $ws1 1
+# set $ws2 2
+# set $ws3 3
+# set $ws4 4
+# set $ws5 5
+# set $ws6 6
+# set $ws7 7
+# set $ws8 8
+# set $ws9 9
+
+
+#######################################################
+#         ASSIGNING WORKSPACES TO MONITORS            #
+#######################################################
+
+workspace $ws1 output $primary
+workspace $ws2 output $nonprimary1
+workspace $ws3 output $nonprimary1
+workspace $ws4 output $primary
+workspace $ws5 output $nonprimary1
+workspace $ws6 output $primary
+workspace $ws7 output $primary
+workspace $ws8 output $nonprimary1
+workspace $ws9 output $primary
+
+
+#######################################################
+#        I3 BERHABIOUR AND GAPS CONFIGURATION         #
+#######################################################
+
+# Window  layout
+# --------------
+
+# set default desktop layout (default is tiling)
+# workspace_layout tabbed <stacking|tabbed>
+
+# Window  border
+# --------------
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border pixel 2
+default_floating_border normal
+
+# Hide borders
+hide_edge_borders none
+
+# Font and mouse interacting
+# --------------------------
+
+# Font for window titles
+font pango:Noto Sans Regular 10
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# Floating windows dimensions
+floating_minimum_size 800 x 600
+floating_maximum_size -1 x -1
+
+# Focus where mouse points
+focus_follows_mouse no
+
+# Gaps
+# ----
+
+# Set inner/outer gaps
+gaps inner 8
+gaps outer 0
+# gaps top 9
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+# smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+hide_edge_borders smart_no_gaps
+
+# Rounded corners
+# ---------------
+# Configure rounded borders. Only when i3 has been installed by 'i3-gaps-rounded-git' package
+
+# border_radius 10
+
+# Workspace assignments
+# ---------------------
+
+# Workspace 1
+#assign [class="Xfce4-terminal" instance="xfce4-terminal"] $ws1
+assign [class="Joplin"] $ws1
+
+# Workspace 2
+assign [class="Emacs" instance="emacs"] $ws2
+assign [class=Google-chrome] $ws2
+#assign [class=kitty] $ws2
+
+# Workspace 3
+assign [class=firefox] $ws3
+
+# Workspace 4
+assign [class="Microsoft Teams - Preview"] $ws4
+
+# Workspace 5
+assign [class="feh" instance="feh"] $ws5
+assign [class="draw.io" instance="draw.io"] $ws5
+assign [class="libreoffice-calc" instance="libreoffice"] $ws5
+
+# Workspace 6
+assign [class=Steam] $ws6
+assign [class="vlc" instance="vlc"] $ws6
+for_window [class=Spotify] move to workspace $ws6
+
+# Workspace 7
+assign [class=Remote-viewer] $ws7
+assign [class=org.remmina.Remmina] $ws7
+
+# Workspace 8
+# NONE
+
+# Workspace 9
+assign [class="Virt-manager" instance="virt-manager"] $ws9
+assign [class="Lxappearance" instance="lxappearance"] $ws9
+assign [class="Nitrogen" instance="nitrogen"] $ws9
+assign [class="Nm-connection-editor" instance="nm-connection-editor"] $ws9
+assign [class=Pavucontrol] $ws9
+assign [class=Pamac-manager] $ws9
+assign [class="Bitwarden" instance="bitwarden"] $ws9
+assign [class="Thunar" instance="thunar"] $ws9
+assign [class="org.gnome.DejaDup"] $ws9
+assign [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] $ws9
+
+# Window rules
+# ------------
+#
+# You can find the window class using 'xprop WM_CLASS'
+# for_window [class="^.*"] border pixel 2
+
+# set focus to a new instance of these applciations
+for_window [class="Xfce4-terminal" instance="xfce4-terminal"] focus
+for_window [class="Virt-manager" instance="virt-manager"] focus
+for_window [class="Lxappearance" instance="lxappearance"] focus
+for_window [class="Nitrogen" instance="nitrogen"] focus
+for_window [class="Evince" instance="evince"] focus
+for_window [class="vlc" instance="vlc"] focus
+for_window [class="feh" instance="feh"] focus
+for_window [class="Nm-connection-editor" instance="nm-connection-editor"] focus
+for_window [class="Emacs" instance="emacs"] focus
+for_window [class="Remote-viewer" instance="remote-viewer"] focus
+for_window [class="firefox"] focus
+for_window [class="Pamac-manager"] focus
+for_window [class="Bitwarden" instance="bitwarden"] focus
+for_window [class="draw.io" instance="draw.io"] focus
+for_window [class="Thunar" instance="thunar"] focus
+for_window [class=Joplin] focus
+for_window [class=Google-chrome] focus
+for_window [class=kitty] focus
+for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] focus
+
+# set floating (nontiling)for apps needing it
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="MEGAsync" instance="megasync"] floating enable
+for_window [class="Lxappearance" instance="lxappearance"] floating enable
+
+#set floating (nontiling) for special apps
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+
+#set tabbing for apps
+for_window [class="Nitrogen" instance="nitrogen"] layout tabbed
+for_window [class="Bitwarden" instance="bitwarden"] layout tabbed
+for_window [class="Virt-manager" instance="virt-manager"] layout tabbed
+for_window [class="Lxappearance" instance="lxappearance"] layout tabbed
+for_window [class="Nitrogen" instance="nitrogen"] layout tabbed
+for_window [class="Nm-connection-editor" instance="nm-connection-editor"] layout tabbed
+for_window [class=Pavucontrol] layout tabbed
+for_window [class=Pamac-manager] layout tabbed
+for_window [class="Bitwarden" instance="bitwarden"] layout tabbed
+for_window [class="Thunar" instance="thunar"] layout tabbed
+for_window [class="org.gnome.DejaDup"] layout tabbed
+for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] layout tabbed
+for_window [class=Steam] layout tabbed
+for_window [class="vlc" instance="vlc"] layout tabbed
+for_window [class=Spotify] layout tabbed
+for_window [class="Microsoft Teams - Preview"] layout tabbed
+
+# Window colors
+# -------------
+
+# Define colors variables: 
+set $darkbluetrans	#08052be6
+set $darkblue		#08052b
+set $lightblue		#5294e2
+set $urgentred		#e53935
+set $white		#ffffff
+set $black		#000000
+set $purple		#e345ff
+set $darkgrey		#383c4a
+set $grey		#b0b5bd
+set $mediumgrey		#8b8b8b
+set $yellowbrown	#e1b700
+
+# class                   border      bground    text     indicator  child_border
+client.focused		  $lightblue  $darkblue  $white   $purple    $mediumgrey
+client.unfocused	  $darkblue   $darkblue	 $grey    $purple    $darkgrey
+client.focused_inactive	  $darkblue   $darkblue	 $grey    $purple    $black
+client.urgent		  $urgentred  $urgentred $white   $purple    $yellowbrown
+ 
+client.background       #F8F8F2
+
+
+#######################################################
+#               AUTOSTART APPLICATIONS                #
+#######################################################
+
+# Services and startup configurations
+# -----------------------------------
+
+# setxkbmap: set keyboard layout
+exec_always --no-startup-id setxkbmap es
+
+# polkit: start agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# dex execute .desktop files
+# keep in mind that it can cause issues 
+# when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
+# in this cases better disable dex and use manual starting apps using xdg/autostart
+exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+
+# start a script to setup displays
+# uncomment the next line, use arandr to setup displays and save the file as monitor:
+exec --no-startup-id ~/.screenlayout/monitor.sh
+
+# blueman-applet: blueman tray icon
+exec --no-startup-id blueman-applet
+
+# blurlock: screensaver
+exec --no-startup-id xautolock -time 10 -locker blurlock
+
+#set powersavings for display:
+exec --no-startup-id xset s 480 dpms 600 600 600
+
+#udiskie for monting
+exec --no-startup-id udiskie -sAn -f thunar
+
+# Applications
+# ------------
+
+# nitrogen: restore last wallpaper
+exec --no-startup-id nitrogen --restore; sleep 1; picom -CGb
+
+# clipit: clipit tray icon
+# exec --no-startup-id clipit
+
+# pamac-tray: pamac tray icon
+exec --no-startup-id pamac-tray
+
+# mega sync: autostart as tray icon
+exec --no-startup-id megasync
+
+# remmina: autostart as tray icon
+exec --no-startup-id remmina -i
+
+# hp-systray: autostart as tray icon
+exec --no-startup-id hp-systray
+
+# joplin: autostart (configured as tray icon startup)
+exec --no-startup-id joplin-desktop
+
+# Conky: autostart
+exec --no-startup-id conky
+
+# slimbook-batery: autostart
+# exec --no-startup-id slimbookbattery
+
+# Nextcloud: autostart
+exec --no-startup-id nextcloud
+
+

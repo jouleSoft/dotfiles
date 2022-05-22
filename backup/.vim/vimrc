@@ -1,0 +1,180 @@
+" jouleSoft (c) 2020 - 2022
+"
+" vim/nvim configuration file
+"
+" -.- ~/.vim/vimrc -.-
+"
+" PREREQUISITES
+" -------------
+" For nvim:
+"   Create ~/.config/nvim/init.vim
+"
+"   Add the following lines:
+"     set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"     let &packpath=&runtimepath
+"     source ~/.vim/vimrc
+" --
+"
+
+" --settings--
+set number relativenumber		" Show line numbers and do it relatively
+set mouse=a				" Use the mouse in all modes (Normal, Visual, Insert Command-Line)
+set numberwidth=1			" Line number margin
+set clipboard=unnamed			" Select the main clipboard for 'y' command
+set showcmd				" Show command
+set ruler				" Show row and column ruler information
+set encoding=utf-8			" Set default encoding
+set showmatch				" Higlight matching brace
+set shiftwidth=2			" Number of auto-indent spaces
+set smartindent				" Enable smart-indent
+set smarttab				" Enable smart-tabs
+set expandtab				" Use spaces instead of tabs
+set softtabstop=4			" Number of spaces per Tab
+set laststatus=2			" Show the status line
+set noshowmode				" Doesn't show the current mode
+set nocompatible			" Prerequisite for vimwiki
+set hlsearch				" highlight all the occurencies in search
+set visualbell				" Use visual bell (no beeping)
+
+filetype on				" Enable file type detection
+filetype plugin on			" Enable loading plugin for especific file type
+
+syntax on				" Enable syntax highlighting
+
+" --leaderkey configuration--
+let mapleader = " "
+
+" Switch off hlsearch till the next search
+nmap <leader>h :noh<CR>
+" ----------------------------------
+" Split window vertically
+nmap <leader>wv :vsplit<CR>
+" Split window horizontally
+nmap <leader>wV :split<CR>
+" Window movement
+nmap <leader>wh :wincmd h<CR>
+nmap <leader>wl :wincmd l<CR>
+nmap <leader>wj :wincmd j<CR>
+nmap <leader>wk :wincmd k<CR>
+
+map <C-l> :vertical resize +5<CR>
+map <C-h> :vertical resize -5<CR>
+map <C-j> :resize +5<CR>
+map <C-k> :resize -5<CR>
+
+" Close window
+nmap <leader>wc :close<CR>
+" Save
+nmap <leader>fs :w<CR>
+" quit vim
+nmap <leader>qq :quit<CR>
+" ---------------------------------
+" Show buffers
+nmap <leader>bi :buffers<CR>
+" Enter buffer
+nmap <leader>bb :buffer 
+" ----------------------------------
+" Open NERDTree
+nmap <leader>o :NERDTreeFind<CR>
+" Easymotion
+nmap <leader>S <Plug>(easymotion-s2)
+" ----------------------------------
+" Markdown-preview
+nmap <leader>mp :call Vim_Markdown_Preview()<CR>
+
+" --Markdown-preview configuration--
+let vim_markwoen_preview_browser = 'firefox'
+let vim_markdown_preview_github = 1
+
+" -.- PLUGIN MANAGER -.-
+"
+" --installing plug--
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" --adding plugins--
+call plug#begin('~/.vim/plugged')
+" -------------------------------
+" --Plugins
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
+Plug 'ervandew/supertab'
+Plug 'mattn/emmet-vim'
+
+" --Autocompletion--
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" --Markdown
+Plug 'godlygeek/tabular', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+" --PowerShell
+Plug 'pprovost/vim-ps1', {'for': 'ps1'}
+" --Python
+Plug 'davidhalter/jedi-vim'
+" --Tools--
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-syntastic/syntastic', { 'as': 'syntastic' }
+Plug 'preservim/nerdtree', { 'as': 'nerdtree' }
+Plug 'airblade/vim-gitgutter'
+" Plug 'majutsushi/tagbar'
+Plug 'raimondi/delimitmate'
+" --Themes--
+"  DEPENDENCIES
+"  ------------
+"  One of the following:
+"  - [AUR] nerd-fonts-hack
+"  - [Community] ttf-nerd-fonts-symbols-mono
+"  Ubuntu:
+"  - fonts-powerline
+"  - DejaVuSansMono Nerd Font Mono
+"
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+Plug 'dracula/vim', { 'as': 'dracula' }
+" -------------------------------
+call plug#end()
+
+" --Dracula color scheme--
+colorscheme dracula
+
+" --NERDTree commands--
+let NERDTreeQuitOnOpen=1
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" --Syntastic configuration--
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" --ale configuration
+let g:ale_completion_autoimport = 1
+
+" --emmet configuration
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" --Syntastic configuration--
+let g:airline_powerline_fonts = 0
+
+"--Deoplete configuration--
+let g:deoplete#enable_at_startup = 1

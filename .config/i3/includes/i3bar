@@ -17,7 +17,7 @@ bar {
   output primary
 
   #i3-bar font configuration
-  font pango:Noto Sans Regular 11, FontAwesome 11
+  font pango:Noto Sans Regular 12, FontAwesome 12
 
   #i3-bar position <top|bottom>
   position top
