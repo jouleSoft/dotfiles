@@ -53,12 +53,12 @@ name = "semi-native"
 # --
 
 [icons]
-name = "awesome"
+name = "awesome6"
 [icons.overrides]
 #music = "   "
 update = ""
 #volume-muted = ""
-cpu = ""
+cpu = ""
 
 [[block]]
 block = "focused_window"
@@ -132,6 +132,11 @@ critical_updates_regex = "(linux |linux-lts|linux-zen)"
 # aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
 aur_command = "checkupdates+aur"
 on_click = "~/.config/i3/scripts/updates.sh"
+
+[[block]]
+block = 'custom'
+command = "echo  $(~/.config/i3/scripts/check-snap-updates.sh)"
+interval = 300
 
 [[block]]
 block = "sound"

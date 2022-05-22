@@ -53,12 +53,12 @@ name = "semi-native"
 # --
 
 [icons]
-name = "awesome6"
+name = "awesome"
 [icons.overrides]
 #music = "   "
 #update = ""
 #volume-muted = ""
-cpu = ""
+cpu = ""
 
 [[block]]
 block = "focused_window"
@@ -117,11 +117,32 @@ ap_format = "{strength}"
 device_format = "{icon} {ap}"
 
 [[block]]
+block = "pacman"
+interval = 300
+format = "{pacman}"
+format_singular = "{pacman}"
+format_up_to_date = "{pacman}"
+critical_updates_regex = "(linux |linux-lts|linux-zen)"
+# aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
+aur_command = "checkupdates+aur"
+
+[[block]]
 block = "sound"
 format = "{volume}"
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage} {time}"
 
 [[block]]
 block = "time"
 interval = 1
 format = "%a %d/%m %R"
 
+[[block]]
+block = "notify"
+format = ""

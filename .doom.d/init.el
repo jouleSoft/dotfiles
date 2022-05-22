@@ -94,6 +94,7 @@
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        ;;lrp
+       lsp
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -168,6 +169,7 @@
        ;;scala             ; java, but good
        ;;scheme            ; a fully conniving family of lisps
        (sh                 ; she sells {ba,z,fi}sh shells on the C xor
+        +lsp
         +powershell)
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
