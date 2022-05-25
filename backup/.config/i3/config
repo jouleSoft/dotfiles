@@ -7,9 +7,11 @@
 #
 #
 
-#######################
-### KEYBINDING INFO ###
-#######################
+
+# ---------------------------------------------------------------
+#    KEYBINDING INFO    
+# ---------------------------------------------------------------
+
 
 # Key legend
 # ------------------------
@@ -23,50 +25,74 @@
 # Minus-key(-) = <minus>
 # ------------------------
 
-################
-### INCLUDES ###
-################
+
+# ---------------------------------------------------------------
+#    INCLUDES 
+# ---------------------------------------------------------------
+
 
 include ~/.config/i3/includes/keybindings
 # include ~/.config/i3/includes/polybar
 include ~/.config/i3/includes/i3bar
 include ~/.config/i3/includes/autostart
 
-########################
-### VARIABLE SETTING ###
-########################
+
+# ---------------------------------------------------------------
+#    VARIABLE SETTINGS
+# ---------------------------------------------------------------
+
 
 # set mod key
-set $mod Mod4
-set $alt Mod1
+set $mod                  Mod4
+set $alt                  Mod1
 
 # set terminal
-set $terminal1 "xfce4-terminal"
-set $terminal2 "kitty"
+set $terminal1            xfce4-terminal
+set $terminal2            kitty
 
 # set file manager
-set $fmanager1 thunar
-set $fmanager2 "xfce4-terminal -e ranger"
+set $fmanager1            thunar
+set $fmanager2            "xfce4-terminal -e ranger"
 
 # set web browser
-set $wbrowser1 firefox
-set $wbrowser2 vimb
+set $wbrowser1            firefox
+set $wbrowser2            vimb
 
 # set monitors
-set $primary "eDP"
-set $nonprimary1 "HDMI-A-0"
+set $primary              "eDP"
+set $nonprimary1          "HDMI-A-0"
 
-# Workspace names
-# ---------------
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: 
+# Define colors variables: 
+set $darkbluetrans	  #08052be6
+set $darkblue		  #08052b
+set $lightblue		  #5294e2
+set $urgentred		  #e53935
+set $white		  #ffffff
+set $black		  #000000
+set $purple		  #e345ff
+set $darkgrey		  #383c4a
+set $grey		  #b0b5bd
+set $mediumgrey		  #8b8b8b
+set $yellowbrown	  #e1b700
+
+# class                   border      bground    text     indicator  child_border
+client.focused		  $lightblue  $darkblue  $white   $purple    $mediumgrey
+client.unfocused	  $darkblue   $darkblue	 $grey    $purple    $darkgrey
+client.focused_inactive	  $darkblue   $darkblue	 $grey    $purple    $black
+client.urgent		  $urgentred  $urgentred $white   $purple    $yellowbrown
+
+client.background         #F8F8F2
+
+
+# ===============================================================
+# Workspace names for i3status || i3status-rs
+# ---------------------------------------------------------------
+# to display names or symbols instead of plain workspace numbers 
+# you can use something like: 
 #
 #   set $ws1 1:mail
 #   set $ws2 2:
-#
 
-# For i3status | i3status-rs
-# --------------------------
 # Terminal and code
 set $ws1 1:
 
@@ -93,10 +119,14 @@ set $ws8 8:
 
 # Preferences
 set $ws9 9:
+# ===============================================================
 
-# For Polybar
-# -----------
-# Polybar manage its own workspace names, so only the workspace number is needed
+
+# ===============================================================
+# Workspace names for Polybar
+# ---------------------------------------------------------------
+# Polybar manage its own workspace names, so only the workspace
+# number is needed
 
 # set $ws1 1
 # set $ws2 2
@@ -107,11 +137,18 @@ set $ws9 9:
 # set $ws7 7
 # set $ws8 8
 # set $ws9 9
+# ===============================================================
 
 
-#######################################################
-#         ASSIGNING WORKSPACES TO MONITORS            #
-#######################################################
+# ---------------------------------------------------------------
+#    WORKSPACES ASSIGNMENT
+# ---------------------------------------------------------------
+
+
+# Assigning workspaces to monitors
+# ---------------------------------------------------------------
+# The assignment occurs when the workspace is created. Every
+# monitor has been assigned to a variable for an easy management
 
 workspace $ws1 output $primary
 workspace $ws2 output $nonprimary1
@@ -124,18 +161,15 @@ workspace $ws8 output $nonprimary1
 workspace $ws9 output $primary
 
 
-#######################################################
-#        I3 BERHABIOUR AND GAPS CONFIGURATION         #
-#######################################################
+# ---------------------------------------------------------------
+#    I3 BERHABIOUR AND GAPS CONFIGURATION
+# ---------------------------------------------------------------
 
-# Window  layout
-# --------------
 
+# Window layout and border
+# ---------------------------------------------------------------
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
-
-# Window  border
-# --------------
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
@@ -144,85 +178,118 @@ default_floating_border normal
 # Hide borders
 hide_edge_borders none
 
-# Font and mouse interacting
-# --------------------------
 
+# Font
+# ---------------------------------------------------------------
 # Font for window titles
 font pango:Noto Sans Regular 10
 
+
+# Mouse interacting
+# ---------------------------------------------------------------
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
-
-# Floating windows dimensions
-floating_minimum_size 800 x 600
-floating_maximum_size -1 x -1
 
 # Focus where mouse points
 focus_follows_mouse no
 
-# Gaps
-# ----
 
+# Floating Windows
+# ---------------------------------------------------------------
+# Floating windows dimensions
+floating_minimum_size 800 x 600
+floating_maximum_size -1 x -1
+
+
+# Gaps
+# ---------------------------------------------------------------
 # Set inner/outer gaps
 gaps inner 8
 gaps outer 0
 # gaps top 9
 
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# Additionally, you can issue commands with the following syntax.
+# This is useful to bind keys to changing the gap size.
+
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
 # gaps outer all plus 5
 
-# Smart gaps (gaps used if only more than one container on the workspace)
+# Smart gaps (gaps used if only more than one container on
+# the workspace)
+
 # smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+# Smart borders (draw borders around container only if it is not
+# the only container on this workspace)
+#
+#     on|no_gaps 
+#
+# (on=always activate and no_gaps=only activate if the gap size 
+# to the edge of the screen is 0)
+
 smart_borders on
 hide_edge_borders smart_no_gaps
 
+
+# ===============================================================
 # Rounded corners
-# ---------------
-# Configure rounded borders. Only when i3 has been installed by 'i3-gaps-rounded-git' package
+# ---------------------------------------------------------------
+# Configure rounded borders. Only when i3 has been installed by 
+# 'i3-gaps-rounded-git' package
 
 # border_radius 10
+# ===============================================================
 
-# Workspace assignments
-# ---------------------
 
-# Workspace 1
+# ---------------------------------------------------------------
+#    WORKSPACE ASSIGNMENTS
+# ---------------------------------------------------------------
+
+
+# Workspace 1: terminal
+# ---------------------------------------------------------------
 #assign [class="Xfce4-terminal" instance="xfce4-terminal"] $ws1
 assign [class="Joplin"] $ws1
 
-# Workspace 2
+# Workspace 2: coding
+# ---------------------------------------------------------------
 assign [class="Emacs" instance="emacs"] $ws2
 #assign [class=kitty] $ws2
 
-# Workspace 3
+# Workspace 3: web browsing
+# ---------------------------------------------------------------
 assign [class=firefox] $ws3
 assign [class=Google-chrome] $ws3
 
-# Workspace 4
+# Workspace 4: chatting
+# ---------------------------------------------------------------
 assign [class="Microsoft Teams - Preview"] $ws4
+assign [class="TelegramDesktop" instance="telegram-desktop"] $ws4
 
-# Workspace 5
+# Workspace 5: office
+# ---------------------------------------------------------------
 assign [class="feh" instance="feh"] $ws5
 assign [class="draw.io" instance="draw.io"] $ws5
 assign [class="libreoffice-calc" instance="libreoffice"] $ws5
 
-# Workspace 6
+# Workspace 6: multimedia and gaming
+# ---------------------------------------------------------------
 assign [class=Steam] $ws6
 assign [class="vlc" instance="vlc"] $ws6
 for_window [class=Spotify] move to workspace $ws6
 
-# Workspace 7
+# Workspace 7: virtualizacion 1
+# ---------------------------------------------------------------
 assign [class=Remote-viewer] $ws7
 assign [class=org.remmina.Remmina] $ws7
 
-# Workspace 8
+# Workspace 8: virtualization 2
+# ---------------------------------------------------------------
 # NONE
 
-# Workspace 9
+# Workspace 9: preferences
+# ---------------------------------------------------------------
 assign [class="Virt-manager" instance="virt-manager"] $ws9
 assign [class="Lxappearance" instance="lxappearance"] $ws9
 assign [class="Nitrogen" instance="nitrogen"] $ws9
@@ -234,13 +301,19 @@ assign [class="Thunar" instance="thunar"] $ws9
 assign [class="org.gnome.DejaDup"] $ws9
 assign [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] $ws9
 
-# Window rules
-# ------------
-#
+
+# ---------------------------------------------------------------
+#    WINDOW RULES
+# ---------------------------------------------------------------
+
+
 # You can find the window class using 'xprop WM_CLASS'
 # for_window [class="^.*"] border pixel 2
 
 # set focus to a new instance of these applciations
+# ---------------------------------------------------------------
+for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] focus
+for_window [class="Nm-connection-editor" instance="nm-connection-editor"] focus
 for_window [class="Xfce4-terminal" instance="xfce4-terminal"] focus
 for_window [class="Virt-manager" instance="virt-manager"] focus
 for_window [class="Lxappearance" instance="lxappearance"] focus
@@ -248,20 +321,19 @@ for_window [class="Nitrogen" instance="nitrogen"] focus
 for_window [class="Evince" instance="evince"] focus
 for_window [class="vlc" instance="vlc"] focus
 for_window [class="feh" instance="feh"] focus
-for_window [class="Nm-connection-editor" instance="nm-connection-editor"] focus
-for_window [class="Emacs" instance="emacs"] focus
-for_window [class="Remote-viewer" instance="remote-viewer"] focus
-for_window [class="firefox"] focus
-for_window [class="Pamac-manager"] focus
-for_window [class="Bitwarden" instance="bitwarden"] focus
 for_window [class="draw.io" instance="draw.io"] focus
 for_window [class="Thunar" instance="thunar"] focus
-for_window [class=Joplin] focus
-for_window [class=Google-chrome] focus
-for_window [class=kitty] focus
-for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] focus
+for_window [class="Emacs" instance="emacs"] focus
+for_window [class="kitty"] focus
+for_window [class="Joplin"] focus
+for_window [class="firefox"] focus
+for_window [class="Bitwarden" instance="bitwarden"] focus
+for_window [class="Remote-viewer" instance="remote-viewer"] focus
+for_window [class="Pamac-manager"] focus
+for_window [class="Google-chrome"] focus
 
 # set floating (nontiling)for apps needing it
+# ---------------------------------------------------------------
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
@@ -269,51 +341,37 @@ for_window [class="MEGAsync" instance="megasync"] floating enable
 for_window [class="Lxappearance" instance="lxappearance"] floating enable
 
 #set floating (nontiling) for special apps
+# ---------------------------------------------------------------
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 
-#set tabbing for apps
+#set tabbing for prefference apps
+# ---------------------------------------------------------------
 for_window [class="Nitrogen" instance="nitrogen"] layout tabbed
 for_window [class="Bitwarden" instance="bitwarden"] layout tabbed
 for_window [class="Virt-manager" instance="virt-manager"] layout tabbed
 for_window [class="Lxappearance" instance="lxappearance"] layout tabbed
-for_window [class="Nitrogen" instance="nitrogen"] layout tabbed
 for_window [class="Nm-connection-editor" instance="nm-connection-editor"] layout tabbed
-for_window [class=Pavucontrol] layout tabbed
-for_window [class=Pamac-manager] layout tabbed
-for_window [class="Bitwarden" instance="bitwarden"] layout tabbed
-for_window [class="Thunar" instance="thunar"] layout tabbed
+for_window [class="Pavucontrol"] layout tabbed
+for_window [class="Pamac-manager"] layout tabbed
 for_window [class="org.gnome.DejaDup"] layout tabbed
 for_window [class="Lightdm-gtk-greeter-settings" instance="lightdm-gtk-greeter-settings"] layout tabbed
-for_window [class=Steam] layout tabbed
+
+#set tabbing for office apps
+# ---------------------------------------------------------------
+for_window [class="Thunar" instance="thunar"] layout tabbed
+
+#set tabbing for multimedia apps
+# ---------------------------------------------------------------
+for_window [class="Spotify"] layout tabbed
+for_window [class="Steam"] layout tabbed
 for_window [class="vlc" instance="vlc"] layout tabbed
-for_window [class=Spotify] layout tabbed
+
+#set tabbing for chat apps
+# ---------------------------------------------------------------
 for_window [class="Microsoft Teams - Preview"] layout tabbed
-
-# Window colors
-# -------------
-
-# Define colors variables: 
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
-set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
-
-# class                   border      bground    text     indicator  child_border
-client.focused		  $lightblue  $darkblue  $white   $purple    $mediumgrey
-client.unfocused	  $darkblue   $darkblue	 $grey    $purple    $darkgrey
-client.focused_inactive	  $darkblue   $darkblue	 $grey    $purple    $black
-client.urgent		  $urgentred  $urgentred $white   $purple    $yellowbrown
- 
-client.background       #F8F8F2
+for_window [class="TelegramDesktop" instance="telegram-desktop"] layout tabbed
 
