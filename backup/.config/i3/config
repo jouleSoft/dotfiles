@@ -196,11 +196,11 @@ assign [class="Joplin"] $ws1
 
 # Workspace 2
 assign [class="Emacs" instance="emacs"] $ws2
-assign [class=Google-chrome] $ws2
 #assign [class=kitty] $ws2
 
 # Workspace 3
 assign [class=firefox] $ws3
+assign [class=Google-chrome] $ws3
 
 # Workspace 4
 assign [class="Microsoft Teams - Preview"] $ws4
