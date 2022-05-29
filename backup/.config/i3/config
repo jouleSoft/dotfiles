@@ -30,7 +30,7 @@
 #    INCLUDES 
 # ---------------------------------------------------------------
 
-#### All config files from 'config.d' directory
+# All config files from 'config.d' directory
 include ~/.config/i3/config.d/*
 
 # ---------------------------------------------------------------
