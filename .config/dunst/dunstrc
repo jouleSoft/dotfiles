@@ -34,7 +34,7 @@
     origin = top-center
 
     # Offset from the origin
-    offset = 30x30
+    offset = 30x35
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -87,10 +87,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
-    frame_color = "#7f3fbf"
+    frame_color = "#383c4a"
 
     # Define a color for the separator.
     # possible values are:
@@ -98,6 +98,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
+    #separator_color = auto
     separator_color = auto
 
     # Sort messages by urgency.
@@ -294,21 +295,22 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#28143c"
+    background = "#383c4a"
     foreground = "#ffffff"
+    highlight = "#e345ff"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
 
 [urgency_normal]
-    background = "#28143c"
+    background = "#383c4a"
     foreground = "#ffffff"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png
 
 [urgency_critical]
-    background = "#28143c"
+    background = "#e53935"
     foreground = "#ffffff"
     frame_color = "#ff7f7f"
     timeout = 120

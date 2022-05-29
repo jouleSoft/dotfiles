@@ -30,12 +30,7 @@
 #    INCLUDES 
 # ---------------------------------------------------------------
 
-
-include ~/.config/i3/includes/keybindings
-# include ~/.config/i3/includes/polybar
-include ~/.config/i3/includes/i3bar
-include ~/.config/i3/includes/autostart
-
+include ~/.config/i3/config.d/*
 
 # ---------------------------------------------------------------
 #    VARIABLE SETTINGS

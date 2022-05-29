@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # ---
-# Title:        dmApplications.sh
-# Description:  Launch an application from a list
+# Title:        dmDocs.sh
+# Description:  Choose from a list a document file to edit
 # Contributors: Julio Jimenez Delgado (jouleSoft)
 #
-# GitHub:	https://github.com/jouleSoft/i3-dotfiles
+# GitHub:		https://github.com/jouleSoft/i3-dotfiles
 #
 # License:      The MIT License (MIT)
 #               Copyright (c) 2021 Julio Jiménez Delgado (jouleSoft)
@@ -23,32 +23,25 @@
 #----------------------------------[Declarations and definitions]----------------------------------
 
 #Script info and arguments evaluation variables
-script_name="dmApplications.sh"
+script_name="dmDocs.sh"
 version="v.0.1"
-description="Launch an application from a list"
+description="Choose from a list a document file to edit"
 
 #Global operational variables
+# Defining the text editor to use.
+# DMEDITOR="vim"
+# DMEDITOR="nvim"
+# DMEDITOR="emacsclient -c -a emacs"
+DMEDITOR="emacsclient -a emacs"
+
 # An array of optiones to choose.
-# You can edit this list to add/remove applications.
+# You can edit this list to add/remove config files.
 declare -a options=(
-"bitwarden            | /usr/bin/bitwarden-desktop"
-"chrome               | /usr/bin/google-chrome-stable"
-"draw.io              | /usr/bin/draw.io"
-"emacs                | /usr/bin/emacs"
-"firefox              | /usr/bin/firefox"
-"Joplin               | /var/lib/snapd/snap/bin/joplin-desktop"
-"keepass              | /usr/bin/keepass"
-"kitty                | /usr/bin/kitty"
-"libreOffice          | /usr/bin/libreoffice"
-"mysql-workbench      | /usr/bin/mysql-workbench"
-"spotify              | /var/lib/snapd/snap/bin/spotify"
-"steam                | /usr/bin/steam"
-"teams                | /var/lib/snapd/snap/bin/teams"
-"telegram             | /usr/bin/telegram-desktop"
-"thunar               | /usr/bin/thunar"
-"transmission         | /usr/bin/transmission-gtk"
-"virt-manager         | /usr/bin/virt-manager"
-"xfce4-terminal       | /usr/bin/xfce4-terminal"
+"notes   - english.org            | $HOME/MEGA/Documentos/notes/english.org"
+"notes   - linux-wiki.org         | $HOME/MEGA/Documentos/notes/linux-wiki.org"
+"notes   - LPIC-1.org             | $HOME/MEGA/Documentos/notes/LPIC-1.org"
+"scripts - js-dotfiles-bkp.sh     | $HOME/github/js-DevOps/sh/js-dotfiles-bkp.sh"
+"scripts - js-scripts-check.sh    | $HOME/github/js-DevOps/sh/js-scripts-check.sh"
 "quit"
 )
 
@@ -74,29 +67,20 @@ main()
 {
 	# Piping options array into dmenu.
 	# We use "printf '%s\n'" to format the array one item to a line.
-	choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 20 -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p 'Run app:')
+	choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 20 -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -p 'Edit doc:')
 
 	# What to do when/if we choose 'quit'.
 	if [ "$choice" == "quit" ]; then
 		echo "Program terminated." && exit 1
 
-	# What to do when/if we choose a file to edit.
+		# What to do when/if we choose a file to edit.
 	elif [ "$choice" ]; then
 		cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+		$DMEDITOR "$cfg"
 
-	# What to do if we just escape without choosing anything.
+		# What to do if we just escape without choosing anything.
 	else
 		echo "Program terminated." && exit 1
-	fi
-
-
-	# What to do when/if we choose ranger
-	if [ "$cfg" == "/home/jjimenez/.config/i3/umenu-term-apps.sh" ]; then
-		alacritty -e /home/jjimenez/.config/i3/umenu-term-apps.sh
-
-	# When/if we choose another application
-	else
-		$cfg
 	fi
 }
 
@@ -118,4 +102,5 @@ unset version
 unset description
 
 #Operational variables (if any)
+unset DMEDITOR
 unset options
