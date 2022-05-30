@@ -5,33 +5,16 @@
 #
 # ~/.config/i3/config                                                        
 #
-#
-
-
-# ---------------------------------------------------------------
-#    KEYBINDING INFO    
-# ---------------------------------------------------------------
-
-
-# Key legend
-# ------------------------
-# Return-key   = <Return>
-# Control-key  = <Ctrl>
-# Shift-key    = <Shift>
-# Alt-key      = <Mod1>
-# Super-key    = <Mod4>
-# Space-key    = <space>
-# Plus-key(+)  = <plus>
-# Minus-key(-) = <minus>
-# ------------------------
 
 
 # ---------------------------------------------------------------
 #    INCLUDES 
 # ---------------------------------------------------------------
 
+
 # All config files from 'config.d' directory
 include ~/.config/i3/config.d/*
+
 
 # ---------------------------------------------------------------
 #    VARIABLE SETTINGS
