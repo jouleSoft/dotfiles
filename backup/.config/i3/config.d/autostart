@@ -77,7 +77,7 @@ exec --no-startup-id hp-systray
 exec --no-startup-id joplin-desktop
 
 # Conky: autostart
-exec --no-startup-id "conky $HOME/.config/conky/conky.conf"
+exec --no-startup-id conky
 
 # Nextcloud: autostart
 exec --no-startup-id nextcloud

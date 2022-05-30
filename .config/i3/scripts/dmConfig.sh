@@ -30,11 +30,17 @@ version="v.0.1"
 description="Choose from a list of configuration files to edit"
 
 declare DMEDITOR
+declare TERMINAL
 
 #Global operational variables
+# Defining the terminal
+TERMINAL="/usr/bin/gnome-terminal"
+
 # Defining the text editor to use.
-# DMEDITOR="xfce4-terminal -e /usr/bin/nvim"
-DMEDITOR="kitty /usr/bin/nvim"
+# DMEDITOR="/usr/bin/nvim"
+DMEDITOR="/usr/bin/nvim"
+
+# For emacs
 # DMEDITOR="emacsclient -c -a emacs"
 # DMEDITOR="emacsclient -a emacs"
 
@@ -112,7 +118,8 @@ main()
 		# What to do when/if we choose a file to edit.
 	elif [ "$choice" ]; then
 		cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
-		$DMEDITOR "$cfg"
+
+		$TERMINAL -e "$DMEDITOR $cfg"
 
 		# What to do if we just escape without choosing anything.
 	else
