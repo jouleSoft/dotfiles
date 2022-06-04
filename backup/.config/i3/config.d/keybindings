@@ -34,8 +34,10 @@
 # ---------------------------------------------------------------
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id $terminal2
-bindsym $mod+Shift+Return exec --no-startup-id $terminal1
+bindsym $mod+Return exec --no-startup-id $terminal1
+
+# start emacs
+bindsym $mod+Shift+Return exec --no-startup-id emacs
 
 # start a web browser
 bindsym $mod+$alt+Return exec --no-startup-id "$wbrowser2 duckduckgo.com"
@@ -90,18 +92,16 @@ mode "$mode_preferences" {
 # dmenu: script and terminal applications launcher
 bindsym $mod+u exec --no-startup-id "$HOME/.config/i3/scripts/dmScripts.sh"
 
-# 
-# |Run editor/viewer  launcher for specific pourpose| #
-#
+# Run editor/viewer  launcher for specific pourpose
+# ---------------------------------------------------------------
 # dmenu: config file edition dmenu launcher
 bindsym $mod+i exec --no-startup-id "$HOME/.config/i3/scripts/dmConfig.sh"
-#
+
 # dmenu: docs edition/view dmenu launcher
 bindsym $mod+$alt+i exec --no-startup-id "$HOME/.config/i3/scripts/dmDocs.sh"
 
-#
-# |  Run web browser launcher for specific pourpose | #
-#
+# Run web browser launcher for specific pourpose
+# ---------------------------------------------------------------
 # dmenu: url dmenu launcher
 bindsym $mod+o exec --no-startup-id "$HOME/.config/i3/scripts/dmUrl.sh"
 
@@ -115,17 +115,14 @@ bindsym $mod+m exec --no-startup-id dunstctl close-all
 # dunstify show history
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
 
-# start conky i3-legend
-bindsym $mod+t exec --no-startup-id "conky -c $HOME/.config/conky/i3-legend.conf"
+# toggle conky main-monitoring
+bindsym $mod+Shift+t exec --no-startup-id "$HOME/.config/i3/scripts/conky-switcher.sh $HOME/.config/conky/conky.conf"
 
-# kill conky i3-legend
-bindsym $mod+Shift+t exec --no-startup-id kill -9 `ps aux | grep i3-legend | grep -v -e "grep" -e "emacs" | awk '{print $2}'`
+# toggle conky i3-legend
+bindsym $mod+t exec --no-startup-id "$HOME/.config/i3/scripts/conky-switcher.sh $HOME/.config/conky/i3-legend.conf"
 
 # restart compositor
-bindsym $mod+$alt+t exec --no-startup-id "pkill picom; sleep 1; picom -CGb"
-
-# restart conky
-bindsym $mod+$alt+Ctrl+t exec --no-startup-id "killall conky; conky; sleep1; nitrogen --restore"
+bindsym $mod+$alt+t exec --no-startup-id "$HOME/.config/i3/scripts/picom-switcher.sh"
 
 # === Print =====================================================
 # Screen Capture
@@ -171,10 +168,10 @@ bindsym XF86AudioPlay exec --no-startup-id ~/.config/i3/pctl-playPause.sh
 #
 # pactl: raise volume and send a notification by dunstify
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%; notify-send 'Volume' -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@|grep -e 'Volume' | cut -d '/' -f 2|sed 's/ //g'|cut -d '%' -f 1) --urgency=low"
-#
+
 # pactl: decrease volume and send a notification by dunstify
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%; notify-send 'Volume' -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@|grep -e 'Volume' | cut -d '/' -f 2|sed 's/ //g'|cut -d '%' -f 1) --urgency=low"
-#
+
 # pactl: Toggle mute
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
