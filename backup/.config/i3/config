@@ -26,8 +26,7 @@ set $mod                  Mod4
 set $alt                  Mod1
 
 # set terminal
-set $terminal1            xfce4-terminal
-set $terminal2            kitty
+set $terminal1            gnome-terminal
 
 # set file manager
 set $fmanager1            thunar

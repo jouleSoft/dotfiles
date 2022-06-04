@@ -30,7 +30,7 @@ set $terminal1            gnome-terminal
 
 # set file manager
 set $fmanager1            thunar
-set $fmanager2            "xfce4-terminal -e ranger"
+set $fmanager2            "gnome-terminal -e ranger"
 
 # set web browser
 set $wbrowser1            firefox
