@@ -1,3 +1,4 @@
+;; CUSTOM DOOM EMACS CONFIG FILE
 ;; Vacaciones personalizadas
 (setq holiday-other-holidays
       '((holiday-fixed 1 6 "Día de Reyes")))
