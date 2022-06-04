@@ -16,7 +16,7 @@
 (setq +org-capture-journal-file "~/MEGA/org/personal.org")
 
 ;; Directorio de inicio al abrir emacs
-(setq default-directory "~/MEGA/org/")
+(setq default-directory "~/workspace/")
 
 ;; Información relativa a org-capture
 ;; Definir variables:
